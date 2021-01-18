@@ -1,6 +1,4 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/macos,python
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,python
 
 ### macOS ###
 # General
@@ -147,6 +145,9 @@ env.bak/
 venv.bak/
 pythonenv*
 
+
+.idea/
+
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -156,8 +157,6 @@ pythonenv*
 
 # mkdocs documentation
 /site
-
-.idea/
 
 # mypy
 .mypy_cache/
@@ -172,5 +171,3 @@ dmypy.json
 
 # profiling data
 .prof
-
-# End of https://www.toptal.com/developers/gitignore/api/macos,python
