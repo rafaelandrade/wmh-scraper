@@ -1,7 +1,7 @@
 from selenium import webdriver
 
 
-def creation_of_instance():
+def creation_of_gc_instance():
 	"""Function responsible for creation of chrome driver instance"""
 	options = webdriver.ChromeOptions()
 
