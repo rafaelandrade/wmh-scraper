@@ -1,9 +1,6 @@
-import pytest
 
 
 def test_coverage():
-	"""
-		First test to verify coverage
-	"""
+	""" First test to verify coverage """
 
-	assert 1 == 1
+	assert 1
