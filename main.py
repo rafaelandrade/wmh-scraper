@@ -1,16 +1,21 @@
-# This is a sample Python script.
+import sentry_sdk
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+from config.config import config
+from selenium import webdriver
+from scraper.main import scraper_initiator
+from utils.config_chrome_driver import creation_of_gc_instance
+from utils.uuid_generator import uuid_generator
 
 
-# Press the green button in the gutter to run the script.
+sentry_sdk.init(config.get("url_sentry"), environment=config.get("environment"))
+
+
+def main():
+    uuid = uuid_generator()
+    options = creation_of_gc_instance()
+    driver = webdriver.Chrome(options=options, executable_path="/Users/rafaelandrade/Downloads/chromedriver")
+    scraper_initiator(uuid=uuid, driver=driver, type_scraper="quinto-andar")
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()

@@ -11,11 +11,12 @@ def creation_of_gc_instance():
 	options.add_argument("--window-size=1920,1080")
 	options.add_argument("--disable-gpu")
 	options.add_argument("--start-maximized")
+	options.page_load_strategy = 'eager'
 	options.add_argument('--lang=en')
 	options.add_experimental_option("excludeSwitches", ["enable-automation"])
 	options.add_experimental_option('useAutomationExtension', False)
 	options.add_argument(
-		"user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) "
-		"Chrome/71.0.3578.98 Safari/537.36")
+		"User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) "
+		"AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36")
 
 	return options
