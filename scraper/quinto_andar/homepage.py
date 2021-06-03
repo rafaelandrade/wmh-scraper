@@ -11,6 +11,7 @@ from utils.sleep import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
+from scraper.quinto_andar.resident_block.street_name import street_view
 
 
 def homepage(uuid: str, driver):
@@ -22,8 +23,10 @@ def homepage(uuid: str, driver):
 
 	print("Page opened")
 
-	page = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.XPATH, '//*[@class="w0f64d-0 hBSKKA"]')))
+	state = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.XPATH, '//*[@class="w0f64d-0 hBSKKA"]')))
 
-	print(page.text)
+	print(state.text)
+
+	street_view(uuid=uuid, driver=driver)
 
 	finish_session(uuid=uuid, driver=driver)
