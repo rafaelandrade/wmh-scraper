@@ -14,18 +14,33 @@ from bs4 import BeautifulSoup
 from scraper.quinto_andar.resident_block.street_name import street_view
 
 
-def homepage(uuid: str, driver):
-	"""Function responsible for start scraper of homepage."""
+def verification_homepage_opened(driver) -> bool:
+	"""Function responsible for verify if homepage of QuintoAndar is open.
 
-	open_page(uuid=uuid, driver=driver, link=quinto_andar_sp_url)
+	Parameters:
+		driver
 
-	sleep(4)
-
-	print("Page opened")
-
+	Return:
+		<bool> True or False
+	"""
 	state = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.XPATH, '//*[@class="w0f64d-0 hBSKKA"]')))
 
-	print(state.text)
+	return True if type(state) is str else False
+
+
+def homepage(uuid: str, driver) -> None:
+	"""Function responsible for start scraper of homepage.
+
+	Parameters:
+		uuid: Unique id.
+		driver: Google Chrome instance.
+
+	Returns:
+		void
+	"""
+
+	open_page(uuid=uuid, driver=driver, link=quinto_andar_sp_url)
+	verification_homepage_opened(driver=driver)
 
 	street_view(uuid=uuid, driver=driver)
 
