@@ -14,7 +14,7 @@ def state_name_and_district(uuid: str, driver) -> str:
         <str> String with state name
     """
 
-    state_and_district = WebDriverWait(driver, 30).until\
+    state = WebDriverWait(driver, 30).until\
         (EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/main/section[2]'
                                                    '/div[2]/div/div[1]/div[3]/div/div/a'
                                                    '/div[3]/div/p[2]')))

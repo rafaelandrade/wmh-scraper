@@ -11,6 +11,7 @@ sentry_sdk.init(config.get("url_sentry"), environment=config.get("environment"))
 
 
 def main():
+    """Main Function responsible for initiation of scraper"""
     uuid = uuid_generator()
     options = creation_of_gc_instance()
     driver = webdriver.Chrome(options=options, executable_path="/Users/rafaelandrade/Downloads/chromedriver")

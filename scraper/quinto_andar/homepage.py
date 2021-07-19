@@ -25,7 +25,7 @@ def verification_homepage_opened(driver) -> bool:
 	"""
 	state = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.XPATH, '//*[@class="w0f64d-0 hBSKKA"]')))
 
-	return True if type(state) is str else False
+	return bool(type(state) is str)
 
 
 def homepage(uuid: str, driver) -> None:

@@ -2,8 +2,7 @@ from pydantic import BaseModel
 
 
 class QuintoAndarSchema(BaseModel):
-    """
-        Schema of homepage block of characters of some building.
+    """Schema of homepage block of characters of some building.
     """
     street_name: str = ""
     state_name: str = ""

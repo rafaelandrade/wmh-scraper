@@ -17,6 +17,7 @@ def creation_of_gc_instance():
 	options.add_experimental_option('useAutomationExtension', False)
 	options.add_argument(
 		"User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) "
-		"AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36")
+		"AppleWebKit/537.36 (KHTML, like Gecko) "
+		"Chrome/79.0.3945.88 Safari/537.36")
 
 	return options

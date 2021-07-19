@@ -1,4 +1,5 @@
 from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import ElementClickInterceptedException
 
 
 def scroll_page(self, uuid: str, number_scrolls: int, driver) -> None:
@@ -14,8 +15,10 @@ def scroll_page(self, uuid: str, number_scrolls: int, driver) -> None:
 		None
 	"""
 
+	print(uuid)
+
 	try:
 		for _ in range(number_scrolls):
-			self.driver.find_element_by_tag_name("body").send_keys(Keys.PAGE_DOWN)
-	except Exception as exception:
+			driver.find_element_by_tag_name("body").send_keys(Keys.PAGE_DOWN)
+	except ElementClickInterceptedException as exception:
 		self.print(f"Exception occured on scroll page. Error: {exception}", exception)
