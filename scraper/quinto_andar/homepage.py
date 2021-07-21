@@ -13,6 +13,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 from scraper.quinto_andar.resident_block.street_name import street_view
 
+from scraper.quinto_andar.scraper_flow import scraper_flow
+
 
 def verification_homepage_opened(driver) -> bool:
 	"""Function responsible for verify if homepage of QuintoAndar is open.
@@ -42,6 +44,5 @@ def homepage(uuid: str, driver) -> None:
 	open_page(uuid=uuid, driver=driver, link=quinto_andar_sp_url)
 	verification_homepage_opened(driver=driver)
 
-	street_view(uuid=uuid, driver=driver)
-
+	scraper_flow(uuid=uuid, driver=driver)
 	finish_session(uuid=uuid, driver=driver)

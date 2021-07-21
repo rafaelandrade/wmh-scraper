@@ -12,5 +12,5 @@ def open_new_tab(driver, link):
     Returns:
         void
     """
-
+    print("Abrindo a nova aba do link")
     link.send_keys(Keys.CONTROL + Keys.RETURN)

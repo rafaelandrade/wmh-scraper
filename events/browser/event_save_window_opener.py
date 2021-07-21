@@ -10,5 +10,5 @@ def save_window_opener(driver):
     Returns:
         void
     """
-
+    print("salvando a tela principal")
     return driver.current_window_handle

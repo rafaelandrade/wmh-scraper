@@ -7,9 +7,9 @@ def close_current_tab(driver) -> None:
 
         Parameters:
             driver: Google Chrome Instance
-
         Returns:
             void
     """
 
-    driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 'w')
+    print("Fechando a aba aberta")
+    driver.close()

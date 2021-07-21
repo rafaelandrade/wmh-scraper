@@ -13,3 +13,5 @@ def open_page(uuid: str, driver, link: str) -> None:
 
 	if link:
 		driver.get(link)
+
+	print("Pagina aberta!")
