@@ -7,6 +7,7 @@ from events.browser.event_switch_to_window import event_switch_right_window
 from events.browser.event_close_tab import close_current_tab
 from selenium.webdriver.support.ui import WebDriverWait
 
+from selenium.common.exceptions import WebDriverException, ElementNotInteractableException
 from selenium.webdriver.support import expected_conditions as EC
 
 
@@ -32,5 +33,5 @@ def scraper_flow(uuid, driver):
             WebDriverWait(driver, 10).until(EC.number_of_windows_to_be(2))
             close_current_tab(driver=driver, main_window=main_window)
 
-    except Exception as exception:
+    except (WebDriverException, ElementNotInteractableException) as exception:
         print(exception)

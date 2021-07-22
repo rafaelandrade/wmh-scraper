@@ -10,3 +10,4 @@ def error_handler(uuid, exception):
     Returns:
         void
     """
+    print(uuid, exception)
