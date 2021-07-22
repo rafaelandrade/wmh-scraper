@@ -13,7 +13,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 def scraper_flow(uuid, driver):
-    """Function responsible for deal with flow logic of QuintoAndar scraper.
+    """
+    Function responsible for deal with flow logic of QuintoAndar scraper.
 
     Parameters:
         uuid: Unique id.
