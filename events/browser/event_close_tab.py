@@ -1,5 +1,3 @@
-from selenium.webdriver.common.keys import Keys
-
 
 def close_current_tab(driver, main_window) -> None:
     """

@@ -7,7 +7,8 @@ from events.browser.event_switch_to_window import event_switch_right_window
 from events.browser.event_close_tab import close_current_tab
 from selenium.webdriver.support.ui import WebDriverWait
 
-from selenium.common.exceptions import WebDriverException, ElementNotInteractableException
+from selenium.common.exceptions import WebDriverException, \
+    ElementNotInteractableException
 from selenium.webdriver.support import expected_conditions as EC
 
 
