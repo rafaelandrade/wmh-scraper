@@ -31,7 +31,8 @@ def verification_homepage_opened(driver) -> bool:
 
 
 def homepage(uuid: str, driver) -> None:
-	"""Function responsible for start scraper of homepage.
+	"""
+	Function responsible for start scraper of homepage.
 
 	Parameters:
 		uuid: Unique id.
@@ -40,7 +41,6 @@ def homepage(uuid: str, driver) -> None:
 	Returns:
 		void
 	"""
-
 	open_page(uuid=uuid, driver=driver, link=quinto_andar_sp_url)
 	verification_homepage_opened(driver=driver)
 

@@ -14,7 +14,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def scraper_flow(uuid, driver):
     """
-    Function responsible for deal with flow logic of QuintoAndar scraper.
+        Function responsible for deal with flow logic of QuintoAndar scraper.
 
     Parameters:
         uuid: Unique id.
@@ -23,7 +23,6 @@ def scraper_flow(uuid, driver):
     Returns:
         void
     """
-
     try:
         print("Iniciando o fluxo de scraper")
         link = get_link_of_resident_block(uuid=uuid, driver=driver)
