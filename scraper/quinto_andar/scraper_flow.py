@@ -7,8 +7,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 from helpers.error_handler.main import error_handler
 
-from selenium.common.exceptions import WebDriverException, \
-    ElementNotInteractableException
+from selenium.common.exceptions import WebDriverException
+from selenium.common.exceptions import ElementNotInteractableException
 from selenium.webdriver.support import expected_conditions as EC
 
 
@@ -35,4 +35,6 @@ def scraper_flow(uuid, driver):
             close_current_tab(driver=driver, main_window=main_window)
 
     except (WebDriverException, ElementNotInteractableException) as exception:
-        error_handler(uuid=uuid, _msg="Exception occurred on scraper_flow", exception=exception)
+        error_handler(uuid=uuid,
+                      _msg="Exception occurred on scraper_flow",
+                      exception=exception)
