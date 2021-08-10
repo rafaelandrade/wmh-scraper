@@ -1,6 +1,6 @@
 from schemas.QuintoAndarSchema import QuintoAndarSchema
 
-from street_name import street_view
+from scraper.quinto_andar.resident_block.street_name import street_view
 
 
 def get_resident_block_data(uuid: str, driver):
@@ -17,3 +17,5 @@ def get_resident_block_data(uuid: str, driver):
     quinto_andar_data = QuintoAndarSchema()
 
     quinto_andar_data.street_name = street_view(uuid=uuid, driver=driver)
+
+    return quinto_andar_data
