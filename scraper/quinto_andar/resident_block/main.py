@@ -14,7 +14,6 @@ def get_resident_block_data(uuid: str, driver):
         Returns:
             any
     """
-
     quinto_andar_data = QuintoAndarSchema()
 
     quinto_andar_data.street_name = street_view(uuid=uuid, driver=driver)

@@ -12,7 +12,6 @@ def street_view(uuid: str, driver) -> str:
     Returns:
         None
     """
-
     street = WebDriverWait(driver, 30).until(
         EC.presence_of_element_located(
             (
@@ -24,7 +23,5 @@ def street_view(uuid: str, driver) -> str:
             )
         )
     )
-
     print(street, uuid)
-
     return street.text if street else None
