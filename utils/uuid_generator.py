@@ -7,7 +7,6 @@ def uuid_generator() -> str:
 	Returns:
 		uuid: unique id.
 	"""
-
 	unique_id = uuid.uuid4()
 
 	return str(unique_id)[:8]

@@ -12,7 +12,6 @@ def event_switch_window(main_window, driver) -> None:
     Returns:
         void
     """
-
     return driver.switch_to_window(main_window)
 
 

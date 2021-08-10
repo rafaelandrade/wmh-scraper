@@ -13,7 +13,6 @@ def street_view(uuid: str, driver) -> str:
     Returns:
         None
     """
-
     street = WebDriverWait(driver, 30).until\
         (EC.presence_of_element_located((By.XPATH, '/html/body/div[1]'
                                                    '/div/main/section[2]'

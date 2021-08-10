@@ -13,7 +13,6 @@ def scroll_page(uuid: str, number_scrolls: int, driver) -> None:
 	Returns:
 		None
 	"""
-
 	print(uuid)
 
 	try:
