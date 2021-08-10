@@ -12,5 +12,4 @@ def open_new_tab(driver, link):
     Returns:
         void
     """
-
     link.send_keys(Keys.CONTROL + Keys.RETURN)

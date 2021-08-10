@@ -12,7 +12,6 @@ def event_switch_window(main_window, driver) -> None:
     Returns:
         void
     """
-
     return driver.switch_to_window(main_window)
 
 
@@ -26,5 +25,4 @@ def event_switch_right_window(driver):
     Returns:
         void
     """
-
     driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.TAB)

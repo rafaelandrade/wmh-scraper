@@ -10,6 +10,5 @@ def open_page(uuid: str, driver, link: str) -> None:
 	Returns:
 		void
 	"""
-
 	if link:
 		driver.get(link)
