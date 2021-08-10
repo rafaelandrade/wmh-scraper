@@ -14,7 +14,6 @@ def scroll_page(self, uuid: str, number_scrolls: int, driver) -> None:
 	Returns:
 		None
 	"""
-
 	print(uuid)
 
 	try:

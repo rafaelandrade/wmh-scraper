@@ -38,7 +38,6 @@ def homepage(uuid: str, driver) -> None:
 	Returns:
 		void
 	"""
-
 	open_page(uuid=uuid, driver=driver, link=quinto_andar_sp_url)
 	verification_homepage_opened(driver=driver)
 
