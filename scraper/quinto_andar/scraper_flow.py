@@ -8,6 +8,8 @@ from events.browser.event_switch_to_window import event_switch_right_window
 from helpers.error_handler.main import error_handler
 from scraper.quinto_andar.get_link_of_resident_block import \
     get_link_of_resident_block
+from scraper.quinto_andar.resident_block.resident_localization_data \
+    import resident_localization_data
 
 
 def scraper_flow(uuid, driver):
@@ -29,6 +31,7 @@ def scraper_flow(uuid, driver):
             main_window = save_window_opener(driver=driver)
             open_new_tab(driver=driver, link=link)
             event_switch_right_window(driver=driver)
+            resident_localization_data(uuid=uuid, driver=driver)
             close_current_tab(driver=driver, main_window=main_window)
 
     except (WebDriverException, ElementNotInteractableException) as exception:

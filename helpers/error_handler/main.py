@@ -17,4 +17,4 @@ def error_handler(uuid, _msg=None, exception=None):
     Returns:
         void
     """
-    return sentry_sdk.capture_exception(exception, _msg, uuid)
+    return sentry_sdk.capture_exception(exception, _msg)
