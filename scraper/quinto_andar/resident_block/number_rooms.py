@@ -18,16 +18,14 @@ def number_of_rooms(uuid: str, driver) -> int:
     try:
         print("começando emmm....")
         number_rooms_data = driver.find_element_by_xpath(
-            '/html/body/div[1]/div/div/main/section/div/div[1]/div/div[2]/div/div[2]/div/div'
+            "/html/body/div[1]/div/div/main/section/div/div[1]/div/div[2]/div/div[2]/div/div"
         )
 
         if number_rooms_data:
-            print(
-                f"{uuid} - Encontrado info sobre numero de quartos"
-            )
+            print(f"{uuid} - Encontrado info sobre numero de quartos")
 
             number_rooms = number_rooms_data.text
-            number_rooms = re.findall(r'\d+', number_rooms)[0]
+            number_rooms = re.findall(r"\d+", number_rooms)[0]
             return int(number_rooms)
     except Exception as exception:
         error_handler(uuid=uuid, exception=exception)

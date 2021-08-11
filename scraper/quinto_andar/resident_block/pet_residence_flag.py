@@ -16,16 +16,14 @@ def pet_flag(uuid: str, driver) -> bool:
     try:
         print("começando emmm....")
         pet_flag_data = driver.find_element_by_xpath(
-            '/html/body/div[1]/div/div/main/section/div/div[1]/div/div[2]/div/div[6]/div/div/span'
+            "/html/body/div[1]/div/div/main/section/div/div[1]/div/div[2]/div/div[6]/div/div/span"
         )
 
         if pet_flag_data:
-            print(
-                f"{uuid} - Encontrado info sobre pet"
-            )
+            print(f"{uuid} - Encontrado info sobre pet")
 
             pet_flag_text = pet_flag_data.text
 
-            return False if pet_flag_text.find('Não') else True
+            return False if pet_flag_text.find("Não") else True
     except Exception as exception:
         error_handler(uuid=uuid, exception=exception)

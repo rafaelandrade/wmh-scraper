@@ -4,13 +4,13 @@ from selenium.common.exceptions import (ElementNotInteractableException,
 from events.browser.event_close_tab import close_current_tab
 from events.browser.event_open_new_tab import open_new_tab
 from events.browser.event_save_window_opener import save_window_opener
+from events.browser.event_switch_to_tab_window import \
+    event_switch_to_tab_window
 from events.browser.event_switch_to_window import event_switch_right_window
-from events.browser.event_switch_to_tab_window import event_switch_to_tab_window
 from helpers.error_handler.main import error_handler
 from scraper.quinto_andar.get_link_of_resident_block import \
     get_link_of_resident_block
 from scraper.quinto_andar.resident_block.main import get_resident_block_data
-
 from utils.sleep import sleep
 
 

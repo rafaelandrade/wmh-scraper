@@ -16,7 +16,7 @@ def resident_localization_data(uuid: str, driver):
     try:
         print("começando emmm....")
         localization_data = driver.find_element_by_xpath(
-            '/html/body/div[1]/div/div/main/section/div/div[1]/div/div[1]/div[1]/p'
+            "/html/body/div[1]/div/div/main/section/div/div[1]/div/div[1]/div[1]/p"
         )
 
         if localization_data:
@@ -25,6 +25,6 @@ def resident_localization_data(uuid: str, driver):
             )
 
             localization_data = localization_data.text
-            return localization_data.split(',')
+            return localization_data.split(",")
     except Exception as exception:
         error_handler(uuid=uuid, exception=exception)

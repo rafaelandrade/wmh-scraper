@@ -18,16 +18,14 @@ def residence_size(uuid: str, driver) -> int:
     try:
         print("começando emmm....")
         size_residence_data = driver.find_element_by_xpath(
-            '/html/body/div[1]/div/div/main/section/div/div[1]/div/div[2]/div/div[1]/div/div/span'
+            "/html/body/div[1]/div/div/main/section/div/div[1]/div/div[2]/div/div[1]/div/div/span"
         )
 
         if size_residence_data:
-            print(
-                f"{uuid} - Encontrado tamanho do quarto"
-            )
+            print(f"{uuid} - Encontrado tamanho do quarto")
 
             size_residence = size_residence_data.text
-            size_residence = re.findall(r'\d+', size_residence)[0]
+            size_residence = re.findall(r"\d+", size_residence)[0]
             return int(size_residence)
     except Exception as exception:
         error_handler(uuid=uuid, exception=exception)
