@@ -8,6 +8,7 @@ from events.browser.event_switch_to_tab_window import \
     event_switch_to_tab_window
 from events.browser.event_switch_to_window import event_switch_right_window
 from helpers.error_handler.main import error_handler
+from schemas.QuintoAndarSchema import QuintoAndarSchema
 from scraper.quinto_andar.get_link_of_resident_block import \
     get_link_of_resident_block
 from scraper.quinto_andar.resident_block.main import get_resident_block_data
@@ -29,6 +30,8 @@ def scraper_flow(uuid, driver):
         print("Iniciando o fluxo de scraper")
         link = get_link_of_resident_block(uuid=uuid, driver=driver)
 
+        quinto_andar_data = QuintoAndarSchema()
+
         if link:
             main_window = save_window_opener(driver=driver)
             open_new_tab(driver=driver, link=link)
@@ -36,9 +39,12 @@ def scraper_flow(uuid, driver):
             sleep(6)
             event_switch_to_tab_window(main_window=main_window, driver=driver)
             print("Iniciando a coleta dos dados")
-            get_resident_block_data(uuid=uuid, driver=driver)
+            get_resident_block_data(
+                uuid=uuid, quinto_andar_data=quinto_andar_data, driver=driver
+            )
             close_current_tab(driver=driver, main_window=main_window)
 
+        print(quinto_andar_data)
         sleep(5)
 
     except (WebDriverException, ElementNotInteractableException) as exception:

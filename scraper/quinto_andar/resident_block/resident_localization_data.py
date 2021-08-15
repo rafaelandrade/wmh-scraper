@@ -1,7 +1,10 @@
+from selenium.common.exceptions import NoSuchElementException
+
 from helpers.error_handler.main import error_handler
+from utils.sleep import sleep
 
 
-def resident_localization_data(uuid: str, driver):
+def resident_localization_data(uuid: str, driver) -> list:
     """
         Function responsible for get all information about localization of specific residence.
 
@@ -13,6 +16,7 @@ def resident_localization_data(uuid: str, driver):
         Object { street_name<String>, district_name<String>, state_name<String> }
     """
     print("Procurando pelo endereço")
+    sleep(number=2)
     try:
         print("começando emmm....")
         localization_data = driver.find_element_by_xpath(
@@ -26,5 +30,5 @@ def resident_localization_data(uuid: str, driver):
 
             localization_data = localization_data.text
             return localization_data.split(",")
-    except Exception as exception:
+    except (AttributeError, NoSuchElementException) as exception:
         error_handler(uuid=uuid, exception=exception)
