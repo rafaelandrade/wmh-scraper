@@ -29,7 +29,8 @@ def get_number_bathrooms(uuid: str, driver) -> int:
             print(f"{uuid} - Encontrado quantidade de banheiros")
 
             number_bathrooms = number_bathrooms_data.text
-            # Start verification if has digit then going to return. If do not have then return 0.
+            # Start verification if has digit
+            # then going to return. If do not have then return 0.
             return (
                 int(re.findall(r"\d+", number_bathrooms)[0])
                 if verification_string_has_digit(uuid=uuid, text=number_bathrooms)

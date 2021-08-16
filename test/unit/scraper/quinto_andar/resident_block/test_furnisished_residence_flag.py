@@ -16,4 +16,4 @@ def test_get_furniture_flag_with_true():
     driver = Driver()
     result = get_furniture_flag(uuid="", driver=driver)
     assert result is True
-    assert type(result) == bool
+    assert type(result) is bool

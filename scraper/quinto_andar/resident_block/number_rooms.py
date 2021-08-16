@@ -31,7 +31,8 @@ def number_of_rooms(uuid: str, driver) -> int:
 
             number_rooms = number_rooms_data.text
 
-            # Start verification if has digit then going to return. If do not have then return 0.
+            # Start verification if has digit
+            # then going to return. If do not have then return 0.
             return (
                 int(re.findall(r"\d+", number_rooms)[0])
                 if verification_string_has_digit(uuid=uuid, text=number_rooms)

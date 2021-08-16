@@ -28,6 +28,6 @@ def get_metro_flag(uuid: str, driver) -> bool:
 
             metro_flag_text = metro_flag_data.text
 
-            return False if metro_flag_text.find("Não") else True
+            return bool(metro_flag_text.find("Não"))
     except (AttributeError, NoSuchElementException) as exception:
         error_handler(uuid=uuid, exception=exception)

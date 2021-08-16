@@ -28,6 +28,6 @@ def pet_flag(uuid: str, driver) -> bool:
 
             pet_flag_text = pet_flag_data.text
 
-            return False if pet_flag_text.find("Não") else True
+            return bool(pet_flag_text.find("Não"))
     except (AttributeError, NoSuchElementException) as exception:
         error_handler(uuid=uuid, exception=exception)

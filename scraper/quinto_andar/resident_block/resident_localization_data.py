@@ -6,7 +6,8 @@ from utils.sleep import sleep
 
 def resident_localization_data(uuid: str, driver) -> list:
     """
-        Function responsible for get all information about localization of specific residence.
+        Function responsible for get all information
+            about localization of specific residence.
 
         Parameters:
         -----------

@@ -30,7 +30,6 @@ def get_type_residence(uuid: str, driver) -> str:
             type_residence = type_residence.lower()
             if "casa" in type_residence:
                 return "house"
-            elif "apartamento" in type_residence:
-                return "apartment"
+            return "apartment"
     except (AttributeError, NoSuchElementException) as exception:
         error_handler(uuid=uuid, exception=exception)

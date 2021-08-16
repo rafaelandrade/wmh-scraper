@@ -15,7 +15,7 @@ def test_number_rooms_with_2_as_number_of_rooms():
     driver = Driver()
     result = number_of_rooms(uuid="", driver=driver)
     assert result == 2
-    assert type(result) == int
+    assert type(result) is int
 
 
 def test_number_rooms_with_0_rooms_find():
