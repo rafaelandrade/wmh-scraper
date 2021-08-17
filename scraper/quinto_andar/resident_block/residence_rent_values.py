@@ -26,7 +26,7 @@ def get_rent_values(uuid: str, driver) -> dict:
         )
 
         if rent_values_data:
-            print(f"{uuid} - Encontrado info sobre os alugues")
+            print(f"{uuid} - Encontrado info sobre os alugueis")
 
             rent_values_dict = {
                 "rent_without_taxes": int,
