@@ -27,6 +27,6 @@ def get_furniture_flag(uuid: str, driver) -> bool:
             print("encontrado algo relacionado se a casa tem imóveis")
             flag_furniture = flag_furniture_data.text
             flag_furniture = flag_furniture.lower()
-            return bool(not("sem" in flag_furniture))
+            return bool(not "sem" in flag_furniture)
     except (AttributeError, NoSuchElementException) as exception:
         error_handler(uuid=uuid, exception=exception)
