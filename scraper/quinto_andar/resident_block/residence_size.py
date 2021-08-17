@@ -30,7 +30,8 @@ def residence_size(uuid: str, driver) -> int:
             print(f"{uuid} - Encontrado tamanho do quarto")
 
             size_residence = size_residence_data.text
-            # Start verification if has digit then going to return. If do not have then return 0.
+            # Start verification if has digit
+            # then going to return. If do not have then return 0.
             return (
                 int(re.findall(r"\d+", size_residence)[0])
                 if verification_string_has_digit(uuid=uuid, text=size_residence)
