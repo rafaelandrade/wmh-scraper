@@ -17,7 +17,7 @@ def resident_localization_data(uuid: str, driver) -> list:
         Object { street_name<String>, district_name<String>, state_name<String> }
     """
     print("Procurando pelo endereço")
-    sleep(number=2)
+    sleep(number=7)
     try:
         print("começando emmm....")
         localization_data = driver.find_element_by_xpath(

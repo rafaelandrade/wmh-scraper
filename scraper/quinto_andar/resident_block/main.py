@@ -31,9 +31,10 @@ def get_resident_block_data(uuid: str, quinto_andar_data: QuintoAndarSchema, dri
     """
     localization_data = resident_localization_data(uuid=uuid, driver=driver)
 
-    quinto_andar_data.street_name = localization_data[0]
-    quinto_andar_data.district_name = localization_data[1]
-    quinto_andar_data.state_name = localization_data[2]
+    if len(localization_data) == 3:
+        quinto_andar_data.street_name = localization_data[0]
+        quinto_andar_data.district_name = localization_data[1]
+        quinto_andar_data.state_name = localization_data[2]
 
     quinto_andar_data.number_rooms = number_of_rooms(uuid=uuid, driver=driver)
 

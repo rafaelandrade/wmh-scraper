@@ -1,17 +1,10 @@
 from selenium.common.exceptions import (ElementNotInteractableException,
                                         WebDriverException)
 
-from events.browser.event_close_tab import close_current_tab
-from events.browser.event_open_new_tab import open_new_tab
-from events.browser.event_save_window_opener import save_window_opener
-from events.browser.event_switch_to_tab_window import \
-    event_switch_to_tab_window
-from events.browser.event_switch_to_window import event_switch_right_window
+from constants.scraper_constants_quinto_andar import quinto_andar
 from helpers.error_handler.main import error_handler
-from schemas.QuintoAndarSchema import QuintoAndarSchema
-from scraper.quinto_andar.get_link_of_resident_block import \
-    get_link_of_resident_block
-from scraper.quinto_andar.resident_block.main import get_resident_block_data
+from scraper.quinto_andar.recursive_scraper_logic import \
+    recursive_scraper_logic
 from utils.sleep import sleep
 
 
@@ -28,25 +21,15 @@ def scraper_flow(uuid, driver):
     """
     try:
         print("Iniciando o fluxo de scraper")
-        link = get_link_of_resident_block(uuid=uuid, driver=driver)
-
-        quinto_andar_data = QuintoAndarSchema()
-
-        if link:
-            main_window = save_window_opener(driver=driver)
-            open_new_tab(driver=driver, link=link)
-            event_switch_right_window(driver=driver)
-            sleep(6)
-            event_switch_to_tab_window(main_window=main_window, driver=driver)
-            print("Iniciando a coleta dos dados")
-            get_resident_block_data(
-                uuid=uuid, quinto_andar_data=quinto_andar_data, driver=driver
-            )
-            close_current_tab(driver=driver, main_window=main_window)
-
-        print(quinto_andar_data)
-        sleep(5)
-
+        recursive_scraper_logic(
+            uuid=uuid,
+            div_number_row=quinto_andar["div_number_row_initiator"],
+            div_number_column=quinto_andar["div_number_column_initiator"],
+            limit_scraper=quinto_andar["limit_scraper"],
+            driver=driver,
+        )
+        sleep(10)
+        print("\n\nTERMINOOOOOOOOU")
     except (WebDriverException, ElementNotInteractableException) as exception:
         error_handler(
             uuid=uuid, _msg="Exception occurred on scraper_flow", exception=exception
