@@ -10,7 +10,7 @@ def test_verification_string_has_digit_should_return_true():
     text = "1batata"
     response = verification_string_has_digit(uuid="", text=text)
     assert response is True
-    assert type(response) == bool
+    assert type(response) is bool
 
 
 def test_verification_string_has_digit_should_return_false():
@@ -18,7 +18,7 @@ def test_verification_string_has_digit_should_return_false():
     text = "batata"
     response = verification_string_has_digit(uuid="", text=text)
     assert response is False
-    assert type(response) == bool
+    assert type(response) is bool
 
 
 def test_verification_string_has_digit_should_return_false_in_case_of_none():
@@ -26,4 +26,4 @@ def test_verification_string_has_digit_should_return_false_in_case_of_none():
     text = None
     response = verification_string_has_digit(uuid="", text=text)
     assert response is False
-    assert type(response) == bool
+    assert type(response) is bool
