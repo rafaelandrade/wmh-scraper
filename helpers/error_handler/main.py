@@ -1,6 +1,7 @@
 import sentry_sdk
 
 from config.config import config
+
 sentry_sdk.init(config.get("url_sentry"), environment=config.get("environment"))
 
 
@@ -17,4 +18,5 @@ def error_handler(uuid, _msg=None, exception=None):
     Returns:
         void
     """
-    return sentry_sdk.capture_exception(exception, _msg, uuid)
+    print(exception)
+    return sentry_sdk.capture_exception(exception, _msg)
