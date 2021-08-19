@@ -64,6 +64,7 @@ def recursive_scraper_logic(
             div_number_column=div_number_column,
             div_number_row=div_number_row,
             limit_scraper=limit_scraper,
+            driver=driver
         )
 
         limit_scraper -= 1
@@ -77,3 +78,7 @@ def recursive_scraper_logic(
             limit_scraper=limit_scraper,
             driver=driver,
         )
+
+
+    print(F"SAIIIIIUUUU DO IF COM LINHA VALOR {div_number_row} E COLUNA {div_number_column}")
+

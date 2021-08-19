@@ -1,5 +1,8 @@
+from events.browser_interaction.event_scroll_qa_page import scroll_quinto_andar_page
+
+
 def recursive_column_row_logic(
-    uuid: str, div_number_row: int, div_number_column: int, limit_scraper: int
+    uuid: str, div_number_row: int, div_number_column: int, limit_scraper: int, driver
 ):
     """
     Function responsible for deal with recursive column row scraper logic.
@@ -9,6 +12,7 @@ def recursive_column_row_logic(
         div_number_row: Number of the block in row in the page
         div_number_column: Number of the block in column in page
         limit_scraper: Number responsible for define the limit of scraper to the page
+        driver: Google Chrome instance
 
     Notes:
         The page is a matrix that was defined as 3 column and 2 rows each
@@ -19,10 +23,11 @@ def recursive_column_row_logic(
     Returns:
         void
     """
-
+    print(uuid)
     if limit_scraper == 4:
         # These represent number of row adding 1
         # and number of column return to 1
+        scroll_quinto_andar_page(uuid=uuid, div_number_row=div_number_row, driver=driver)
         return div_number_row + 1, 1
 
     # Number_row, number_column
