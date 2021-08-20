@@ -1,3 +1,4 @@
+import time
 from selenium.common.exceptions import (ElementNotInteractableException,
                                         WebDriverException)
 
@@ -20,12 +21,14 @@ def scraper_flow(uuid, driver):
         void
     """
     try:
-        print("Iniciando o fluxo de scraper")
+        timeout_start = time.time()
+        print(f"Iniciando o fluxo de scraper as {timeout_start}")
         recursive_scraper_logic(
             uuid=uuid,
             div_number_row=quinto_andar["div_number_row_initiator"],
             div_number_column=quinto_andar["div_number_column_initiator"],
             limit_scraper=quinto_andar["limit_scraper"],
+            timeout_start=timeout_start,
             driver=driver,
         )
         sleep(10)

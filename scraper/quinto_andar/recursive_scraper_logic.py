@@ -1,3 +1,5 @@
+import time
+
 from events.browser.event_close_tab import close_current_tab
 from events.browser.event_open_new_tab import open_new_tab
 from events.browser.event_save_window_opener import save_window_opener
@@ -14,7 +16,7 @@ from utils.sleep import sleep
 
 
 def recursive_scraper_logic(
-    uuid: str, div_number_row: int, div_number_column: int, limit_scraper: int, driver
+    uuid: str, div_number_row: int, div_number_column: int, limit_scraper: int, timeout_start, driver
 ):
     """
         Function responsible for deal with recursive scraper logic.
@@ -24,6 +26,7 @@ def recursive_scraper_logic(
         div_number_row: Number of the block in row in the page
         div_number_column: Number of the block in column in page
         limit_scraper: Number responsible for define the limit of scraper to the page
+        timeout_start: The time that scraper begin
         driver: Google Chrome instance
 
     Notes:
@@ -34,7 +37,11 @@ def recursive_scraper_logic(
     Returns:
         void
     """
-    if limit_scraper > 0:
+    timeout = 900
+
+    sleep(15)
+    # Scraper will happen for 15 minutes #
+    if time.time() < timeout_start + timeout:
         link = get_link_of_resident_block(
             uuid=uuid,
             div_number_row=div_number_row,
@@ -48,8 +55,8 @@ def recursive_scraper_logic(
             main_window = save_window_opener(driver=driver)
             open_new_tab(driver=driver, link=link)
             event_switch_right_window(driver=driver)
-            sleep(6)
             event_switch_to_tab_window(main_window=main_window, driver=driver)
+            sleep(8)
             print("Iniciando a coleta dos dados")
             get_resident_block_data(
                 uuid=uuid, quinto_andar_data=quinto_andar_data, driver=driver
@@ -64,10 +71,10 @@ def recursive_scraper_logic(
             div_number_column=div_number_column,
             div_number_row=div_number_row,
             limit_scraper=limit_scraper,
-            driver=driver
+            driver=driver,
         )
 
-        limit_scraper -= 1
+        limit_scraper += 1
 
         print(f"QUINTOOOOOO ANDARRRR \n\n\n{quinto_andar_data}")
 
@@ -76,9 +83,10 @@ def recursive_scraper_logic(
             div_number_row=div_number_row,
             div_number_column=div_number_column,
             limit_scraper=limit_scraper,
+            timeout_start=timeout_start,
             driver=driver,
         )
 
-
-    print(F"SAIIIIIUUUU DO IF COM LINHA VALOR {div_number_row} E COLUNA {div_number_column}")
-
+    print(
+        f"SAIIIIIUUUU DO IF COM LINHA VALOR {div_number_row} E COLUNA {div_number_column}"
+    )

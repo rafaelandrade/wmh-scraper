@@ -1,4 +1,5 @@
-from events.browser_interaction.event_scroll_qa_page import scroll_quinto_andar_page
+from events.browser_interaction.event_scroll_qa_page import \
+    scroll_quinto_andar_page
 
 
 def recursive_column_row_logic(
@@ -24,10 +25,12 @@ def recursive_column_row_logic(
         void
     """
     print(uuid)
-    if limit_scraper == 4:
+    if (limit_scraper - 1) % 3 == 0:
         # These represent number of row adding 1
         # and number of column return to 1
-        scroll_quinto_andar_page(uuid=uuid, div_number_row=div_number_row, driver=driver)
+        scroll_quinto_andar_page(
+            uuid=uuid, div_number_row=div_number_row, driver=driver
+        )
         return div_number_row + 1, 1
 
     # Number_row, number_column

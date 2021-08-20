@@ -19,10 +19,12 @@ def get_link_of_resident_block(
     print(
         f"\n\n --- COMEÇANDO COM LINHA {div_number_row} --- COLUNA {div_number_column}"
     )
-
-    link = driver.find_element_by_xpath(
-        "/html/body/div[1]/div/main"
-        "/section[2]/div[2]/div"
-        f"/div[1]/div[{div_number_row}]/div[{div_number_column}]/div/a"
-    )
-    return link if link else None
+    try:
+        link = driver.find_element_by_xpath(
+            "/html/body/div[1]/div/main"
+            "/section[2]/div[2]/div"
+            f"/div[1]/div[{div_number_row}]/div[{div_number_column}]/div/a"
+        )
+        return link if link else None
+    except Exception as exception:
+        print(F"ERROR IN GET A LINK {exception}")

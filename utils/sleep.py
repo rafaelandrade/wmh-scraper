@@ -11,4 +11,4 @@ def sleep(number: int) -> None:
 	Returns:
 		None
 	"""
-	time.sleep(random_number(number=number))
+	time.sleep(number)
