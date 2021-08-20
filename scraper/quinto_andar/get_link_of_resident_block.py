@@ -27,4 +27,4 @@ def get_link_of_resident_block(
         )
         return link if link else None
     except Exception as exception:
-        print(F"ERROR IN GET A LINK {exception}")
+        print(f"ERROR IN GET A LINK {exception}")

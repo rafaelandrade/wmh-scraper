@@ -16,7 +16,12 @@ from utils.sleep import sleep
 
 
 def recursive_scraper_logic(
-    uuid: str, div_number_row: int, div_number_column: int, limit_scraper: int, timeout_start, driver
+    uuid: str,
+    div_number_row: int,
+    div_number_column: int,
+    limit_scraper: int,
+    timeout_start,
+    driver,
 ):
     """
         Function responsible for deal with recursive scraper logic.
