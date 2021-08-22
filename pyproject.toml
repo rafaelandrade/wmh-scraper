@@ -11,7 +11,7 @@ exclude = '''
 | _build
 | buck-out
 | \test
-| test
+| test/*
 | build
 )/
 '''
