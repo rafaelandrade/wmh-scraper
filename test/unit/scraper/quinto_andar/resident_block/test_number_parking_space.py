@@ -1,4 +1,6 @@
-from scraper.quinto_andar.resident_block.number_parking_space import get_number_parking_space
+from scraper.quinto_andar.resident_block.number_parking_space import (
+    get_number_parking_space,
+)
 
 
 def test_get_number_parking_space_with_1_parking_space():

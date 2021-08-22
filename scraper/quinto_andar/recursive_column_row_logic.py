@@ -1,9 +1,14 @@
-from events.browser_interaction.event_scroll_qa_page import \
-    scroll_quinto_andar_page
+from events.browser_interaction.event_scroll_qa_page import (
+    scroll_quinto_andar_page,
+)
 
 
 def recursive_column_row_logic(
-    uuid: str, div_number_row: int, div_number_column: int, limit_scraper: int, driver
+    uuid: str,
+    div_number_row: int,
+    div_number_column: int,
+    limit_scraper: int,
+    driver,
 ):
     """
     Function responsible for deal with recursive column row scraper logic.

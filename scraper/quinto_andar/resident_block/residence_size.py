@@ -34,7 +34,9 @@ def residence_size(uuid: str, driver) -> int:
             # then going to return. If do not have then return 0.
             return (
                 int(re.findall(r"\d+", size_residence)[0])
-                if verification_string_has_digit(uuid=uuid, text=size_residence)
+                if verification_string_has_digit(
+                    uuid=uuid, text=size_residence
+                )
                 else 0
             )
     except (AttributeError, NoSuchElementException) as exception:

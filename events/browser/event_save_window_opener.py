@@ -1,5 +1,3 @@
-
-
 def save_window_opener(driver):
     """
     Function responsible for save main window.

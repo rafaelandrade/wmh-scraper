@@ -27,7 +27,9 @@ def get_number_parking_space(uuid: str, driver) -> int:
         )
 
         if number_parking_space_data:
-            print(f"{uuid} - Encontrado quantidade de vagas de estacionamento...")
+            print(
+                f"{uuid} - Encontrado quantidade de vagas de estacionamento..."
+            )
 
             number_parking_space = number_parking_space_data.text
 
@@ -35,7 +37,9 @@ def get_number_parking_space(uuid: str, driver) -> int:
             # then going to return. If do not have then return 0.
             return (
                 int(re.findall(r"\d+", number_parking_space)[0])
-                if verification_string_has_digit(uuid=uuid, text=number_parking_space)
+                if verification_string_has_digit(
+                    uuid=uuid, text=number_parking_space
+                )
                 else 0
             )
     except (AttributeError, NoSuchElementException) as exception:

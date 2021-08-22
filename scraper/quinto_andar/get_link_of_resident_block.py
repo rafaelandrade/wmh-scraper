@@ -1,3 +1,6 @@
+from selenium.common.exceptions import NoSuchElementException
+
+
 def get_link_of_resident_block(
     uuid, div_number_row: int, div_number_column: int, driver
 ) -> classmethod:
@@ -17,7 +20,9 @@ def get_link_of_resident_block(
     print(uuid)
     print("Iniciando o processo de pegar o link")
     print(
-        f"\n\n --- COMEÇANDO COM LINHA {div_number_row} --- COLUNA {div_number_column}"
+        f"\n\n "
+        f"--- COMEÇANDO COM LINHA {div_number_row} "
+        f"--- COLUNA {div_number_column}"
     )
     try:
         link = driver.find_element_by_xpath(
@@ -26,5 +31,5 @@ def get_link_of_resident_block(
             f"/div[1]/div[{div_number_row}]/div[{div_number_column}]/div/a"
         )
         return link if link else None
-    except Exception as exception:
+    except (AttributeError, NoSuchElementException) as exception:
         print(f"ERROR IN GET A LINK {exception}")

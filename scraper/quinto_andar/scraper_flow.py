@@ -1,12 +1,15 @@
 import time
 
-from selenium.common.exceptions import (ElementNotInteractableException,
-                                        WebDriverException)
+from selenium.common.exceptions import (
+    ElementNotInteractableException,
+    WebDriverException,
+)
 
 from constants.scraper_constants_quinto_andar import quinto_andar
 from helpers.error_handler.main import error_handler
-from scraper.quinto_andar.recursive_scraper_logic import \
-    recursive_scraper_logic
+from scraper.quinto_andar.recursive_scraper_logic import (
+    recursive_scraper_logic,
+)
 from utils.sleep import sleep
 
 
@@ -36,5 +39,7 @@ def scraper_flow(uuid, driver):
         print("\n\nTERMINOOOOOOOOU")
     except (WebDriverException, ElementNotInteractableException) as exception:
         error_handler(
-            uuid=uuid, _msg="Exception occurred on scraper_flow", exception=exception
+            uuid=uuid,
+            _msg="Exception occurred on scraper_flow",
+            exception=exception,
         )

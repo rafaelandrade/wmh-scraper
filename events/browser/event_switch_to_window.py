@@ -26,4 +26,4 @@ def event_switch_right_window(driver):
         void
     """
     print("Trocando para a aba da direita")
-    driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.TAB)
+    driver.find_element_by_tag_name("body").send_keys(Keys.CONTROL + Keys.TAB)

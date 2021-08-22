@@ -3,14 +3,17 @@ import time
 from events.browser.event_close_tab import close_current_tab
 from events.browser.event_open_new_tab import open_new_tab
 from events.browser.event_save_window_opener import save_window_opener
-from events.browser.event_switch_to_tab_window import \
-    event_switch_to_tab_window
+from events.browser.event_switch_to_tab_window import (
+    event_switch_to_tab_window,
+)
 from events.browser.event_switch_to_window import event_switch_right_window
 from schemas.QuintoAndarSchema import QuintoAndarSchema
-from scraper.quinto_andar.get_link_of_resident_block import \
-    get_link_of_resident_block
-from scraper.quinto_andar.recursive_column_row_logic import \
-    recursive_column_row_logic
+from scraper.quinto_andar.get_link_of_resident_block import (
+    get_link_of_resident_block,
+)
+from scraper.quinto_andar.recursive_column_row_logic import (
+    recursive_column_row_logic,
+)
 from scraper.quinto_andar.resident_block.main import get_resident_block_data
 from utils.sleep import sleep
 
