@@ -15,5 +15,5 @@ def scraper_initiator(uuid: str, driver, type_scraper: str) -> None:
     try:
         if type_scraper == "quinto-andar":
             homepage(uuid=uuid, driver=driver)
-    except Exception as exception:
+    except AttributeError as exception:
         print(f"Error on scraper_initiator: {exception}", exception)

@@ -29,12 +29,14 @@ def test_recursive_scraper_logic_with_time_lower_then_timeout(mocker):
     div_number_column = fake.unique.random_int()
     limit_scraper = fake.unique.random_int()
 
-    response = recursive_scraper_logic(
-        uuid="",
-        div_number_row=div_number_row,
-        div_number_column=div_number_column,
-        limit_scraper=limit_scraper,
-        timeout_start=timeout_start,
-        driver={},
+    assert (
+        recursive_scraper_logic(
+            uuid="",
+            div_number_row=div_number_row,
+            div_number_column=div_number_column,
+            limit_scraper=limit_scraper,
+            timeout_start=timeout_start,
+            driver={},
+        )
+        is None
     )
-    assert response is None
