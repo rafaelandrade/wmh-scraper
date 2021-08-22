@@ -1,4 +1,6 @@
-from scraper.quinto_andar.resident_block.resident_localization_data import resident_localization_data
+from scraper.quinto_andar.resident_block.resident_localization_data import (
+    resident_localization_data,
+)
 
 
 def test_resident_localization_data_with_localization_as_response():

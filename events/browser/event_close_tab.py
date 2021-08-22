@@ -1,13 +1,12 @@
-
 def close_current_tab(driver, main_window) -> None:
     """
-        Function responsible for close the tab that was opened.
+    Function responsible for close the tab that was opened.
 
-        Parameters:
-            driver: Google Chrome Instance
-            main_window: Id of homepage window
-        Returns:
-            void
+    Parameters:
+        driver: Google Chrome Instance
+        main_window: Id of homepage window
+    Returns:
+        void
     """
     print("Fechando a aba aberta")
     screens = driver.window_handles

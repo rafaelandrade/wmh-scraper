@@ -1,5 +1,6 @@
-from scraper.quinto_andar.resident_block.furnisished_residence_flag import \
-    get_furniture_flag
+from scraper.quinto_andar.resident_block.furnisished_residence_flag import (
+    get_furniture_flag,
+)
 
 
 def test_get_furniture_flag_with_true():

@@ -1,4 +1,6 @@
-from scraper.quinto_andar.resident_block.residence_rent_values import get_rent_values
+from scraper.quinto_andar.resident_block.residence_rent_values import (
+    get_rent_values,
+)
 
 
 def test_residence_rent_values_with_rent_values_in_response():

@@ -1,4 +1,6 @@
-from scraper.quinto_andar.resident_block.type_of_residence import get_type_residence
+from scraper.quinto_andar.resident_block.type_of_residence import (
+    get_type_residence,
+)
 
 
 def test_type_of_residence_returning_house():

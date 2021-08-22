@@ -8,5 +8,5 @@ config = {}
 
 
 if ENVIRONMENT == "development":
-	config["database_url"] = environ.get("DATABASE_URL")
-	config["url_sentry"] = environ.get("URL_SENTRY")
+    config["database_url"] = environ.get("DATABASE_URL")
+    config["url_sentry"] = environ.get("URL_SENTRY")

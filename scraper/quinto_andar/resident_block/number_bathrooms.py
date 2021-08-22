@@ -33,7 +33,9 @@ def get_number_bathrooms(uuid: str, driver) -> int:
             # then going to return. If do not have then return 0.
             return (
                 int(re.findall(r"\d+", number_bathrooms)[0])
-                if verification_string_has_digit(uuid=uuid, text=number_bathrooms)
+                if verification_string_has_digit(
+                    uuid=uuid, text=number_bathrooms
+                )
                 else 0
             )
     except (AttributeError, NoSuchElementException) as exception:
