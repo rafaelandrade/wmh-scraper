@@ -17,7 +17,16 @@ sentry_sdk.init(
 
 
 def thread(thread_number: int) -> None:
-    """"""
+    """
+    Responsible for each thread initiate a new
+        consumer
+
+    Parameters:
+        thread_number: int
+
+    Returns:
+        None
+    """
     print(f"executing thread number {thread_number}")
 
     uuid = uuid_generator()
@@ -30,7 +39,13 @@ def thread(thread_number: int) -> None:
     main(uuid=uuid, driver=driver, queue=queues.get(f"{thread_number}"))
 
 
-def principal():
+def principal() -> None:
+    """
+    Function responsible for have the logic of threads initiator
+
+    Returns:
+        None
+    """
     futures_threads = []
     number_threads = len(consumers_object)
     with ThreadPoolExecutor(max_workers=number_threads) as executor:

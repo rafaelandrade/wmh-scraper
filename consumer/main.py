@@ -28,5 +28,5 @@ def main(uuid: str, driver: any, queue: any) -> None:
                     consumer_message_handler(
                         message=message, uuid=uuid, driver=driver
                     )
-    except Exception as exception:
+    except AttributeError as exception:
         error_handler(uuid=uuid, exception=exception)

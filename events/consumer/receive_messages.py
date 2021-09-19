@@ -9,9 +9,11 @@ def receive_messages(uuid: str, queue: any, max_number: int, wait_time: int):
                 queue: any The queue from which to receive messages
                 max_number: any The maximum number of messages to receive.
                     The actual number of messages received might be less.
-                wait_time: any The maximum time to wait (in seconds) before returning. When
-                    this number is greater than zero, long polling is used. This
-                    can result in reduced costs and fewer false empty responses.
+                wait_time: any The maximum time to wait (in seconds)
+                        before returning. When this number is greater
+                        than zero, long polling is used.
+                    This can result in
+                        reduced costs and fewer false empty responses.
                 uuid: Unique id str
     Returns:
             The list of Message objects received. These each contain the body

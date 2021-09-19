@@ -23,5 +23,5 @@ def consumer_message_handler(uuid: str, message: any, driver: any) -> None:
             properties=data.get("data").get("type_scraper"),
             driver=driver,
         )
-    except Exception as exception:
+    except AttributeError as exception:
         error_handler(uuid=uuid, exception=exception)
