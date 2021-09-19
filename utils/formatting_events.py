@@ -8,5 +8,4 @@ def formatting_events(event: str) -> str:
     Returns:
         str
     """
-
     return event.lower()

@@ -12,7 +12,6 @@ def validate_message_data(uuid: str, message) -> dict:
     Returns:
         object
     """
-
     print(f"{uuid} - Going to validate msg data")
     message = json.loads(message)
 

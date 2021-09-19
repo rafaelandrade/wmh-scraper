@@ -22,8 +22,7 @@ def executor(uuid: str, consumer: str, properties: any, driver: any) -> None:
         return consumers_object.get(consumer)(
             uuid=uuid, properties=properties, driver=driver
         )
-    else:
-        print("consumer object not found going to execute the default")
-        return consumers_object.get("default")(
-            uuid=uuid, properties=properties, driver=driver
-        )
+    print("consumer object not found going to execute the default")
+    return consumers_object.get("default")(
+        uuid=uuid, properties=properties, driver=driver
+    )

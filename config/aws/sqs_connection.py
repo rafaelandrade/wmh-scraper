@@ -9,7 +9,6 @@ def sqs_connection():
     Returns:
         sqs instance
     """
-
     return boto3.resource(
         "sqs",
         aws_access_key_id=config.get("aws_access_key_id"),

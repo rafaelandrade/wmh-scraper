@@ -5,7 +5,6 @@ def test_scraper_initiator(mocker):
     """
     Should called quinto andar initiator
     """
-
     mocker_homepage = mocker.patch("scraper.main.homepage", return_value=None)
 
     assert (
