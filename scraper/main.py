@@ -12,7 +12,7 @@ def scraper_initiator(uuid: str, properties: str, driver: any) -> None:
         properties: type of scraper that going to initiate
 
     Returns:
-            None
+        None
     """
     try:
         if properties == "quinto-andar":

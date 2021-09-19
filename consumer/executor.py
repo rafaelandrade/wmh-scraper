@@ -3,7 +3,8 @@ from consumer.consumers import consumers_object
 
 def executor(uuid: str, consumer: str, properties: any, driver: any) -> None:
     """
-    aaa
+    Function responsible for execute a specific consumer
+        that is declared in consumers object
 
     Parameters:
         uuid: str
@@ -14,7 +15,6 @@ def executor(uuid: str, consumer: str, properties: any, driver: any) -> None:
     Returns:
         None
     """
-
     if consumer in consumers_object:
         print(
             f"Going to execute consumer {consumer}... With follow properties {properties}"

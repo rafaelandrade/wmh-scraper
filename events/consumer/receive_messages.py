@@ -2,7 +2,7 @@ from botocore.exceptions import ClientError
 from helpers.error_handler.main import error_handler
 
 
-def receive_messages(uuid: str, queue, max_number, wait_time):
+def receive_messages(uuid: str, queue: any, max_number: int, wait_time: int):
     """
     Receive a batch of messages in a single request from an SQS queue.
     Parameters:

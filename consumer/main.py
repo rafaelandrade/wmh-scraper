@@ -5,14 +5,24 @@ from consumer.consumer_message_handler import consumer_message_handler
 
 
 def main(uuid: str, driver: any, queue: any) -> None:
-    """"""
+    """
+    Consumer responsible for receive messages from SQS Queue
+
+    Parameters:
+        uuid: str
+        driver: any
+        queue: any
+
+    Returns:
+        None
+    """
     try:
         while True:
             messages = receive_messages(
                 uuid=uuid, queue=queue, max_number=1, wait_time=0
             )
             if len(messages) == 0:
-                print("0 mensagem")
+                print("0 mensagem - esperando")
             else:
                 for message in messages:
                     consumer_message_handler(
