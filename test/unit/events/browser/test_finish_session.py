@@ -14,4 +14,4 @@ def test_finish_session():
 
     driver = Driver()
 
-    assert finish_session(uuid="", driver=driver) is None
+    assert finish_session(driver=driver) is None
