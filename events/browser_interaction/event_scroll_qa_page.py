@@ -24,9 +24,8 @@ def scroll_quinto_andar_page(uuid: str, div_number_row: int, driver):
 
         sleep(number=3)
         if element:
-            print("dENTROOOOO DO SCROLLL")
             actions = ActionChains(driver)
             actions.move_to_element(element)
             actions.perform()
-    except ElementClickInterceptedException as exception:
+    except (ElementClickInterceptedException, AttributeError) as exception:
         error_handler(uuid=uuid, exception=exception)

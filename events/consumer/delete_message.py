@@ -15,6 +15,6 @@ def delete_message(uuid: str, message) -> None:
     """
     try:
         message.delete()
-        print(f"Deleted message: {message.message_id}")
-    except ClientError as exception:
+        print("Message was deleted with success.")
+    except (ClientError, AttributeError) as exception:
         error_handler(uuid=uuid, exception=exception)

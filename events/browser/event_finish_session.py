@@ -8,5 +8,5 @@ def finish_session(uuid: str, driver) -> None:
     Returns:
             void
     """
-    print(uuid)
+    print("Finishing session...")
     driver.quit()

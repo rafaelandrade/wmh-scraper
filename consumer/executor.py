@@ -1,7 +1,7 @@
 from consumer.consumers import consumers_object
 
 
-def executor(uuid: str, consumer: str, properties: any, driver: any) -> None:
+def executor(uuid: str, consumer: str, properties: any, driver: any) -> any:
     """
     Function responsible for execute a specific consumer
         that is declared in consumers object

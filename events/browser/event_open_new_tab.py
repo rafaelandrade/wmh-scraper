@@ -1,12 +1,12 @@
 from selenium.webdriver.common.keys import Keys
 
 
-def open_new_tab(driver, link):
+def open_new_tab(link):
     """
     Function responsible for open new tab
+        base on link
 
     Parameters:
-        driver: Google Chrome instance
         link
 
     Returns:
