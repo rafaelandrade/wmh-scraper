@@ -1,4 +1,4 @@
-def finish_session(uuid: str, driver) -> None:
+def finish_session(driver) -> None:
     """Function responsible for finish a respective session.
 
     Parameters:
