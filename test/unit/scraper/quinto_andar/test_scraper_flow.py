@@ -7,8 +7,9 @@ fake = Faker()
 
 def test_scraper_flow_calling_recursive_scraper_logic(mocker):
     """Should return None after recursive scraper logic finished"""
-    mocker.patch(
+    mock_scrape_logic = mocker.patch(
         "scraper.quinto_andar.scraper_flow.recursive_scraper_logic",
         return_value=None,
     )
     assert scraper_flow(uuid="", driver={}) is None
+    assert mock_scrape_logic.call_count == 1
