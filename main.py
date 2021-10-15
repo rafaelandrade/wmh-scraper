@@ -4,7 +4,6 @@ from config.config import config
 from selenium import webdriver
 from constants.queues_constants import queues
 from utils.config_chrome_driver import creation_of_gc_instance
-from utils.uuid_generator import uuid_generator
 from concurrent.futures import ThreadPoolExecutor, wait
 
 from consumer.consumers import consumers_object
@@ -27,16 +26,13 @@ def thread(thread_number: int) -> None:
     Returns:
         None
     """
-    print(f"executing thread number {thread_number}")
-
-    uuid = uuid_generator()
     options = creation_of_gc_instance()
     driver = webdriver.Chrome(
         options=options,
         executable_path="/Users/rafaelandrade/Downloads/chromedriver",
     )
 
-    main(uuid=uuid, driver=driver, queue=queues.get(f"{thread_number}"))
+    main(driver=driver, queue=queues.get(f"{thread_number}"))
 
 
 def principal() -> None:

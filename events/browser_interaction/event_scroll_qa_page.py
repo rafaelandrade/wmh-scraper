@@ -4,13 +4,15 @@ from helpers.error_handler.main import error_handler
 from utils.sleep import sleep
 
 
-def scroll_quinto_andar_page(uuid: str, div_number_row: int, driver):
+def scroll_quinto_andar_page(
+    x_request_id: str, div_number_row: int, driver
+) -> None:
     """
     Function responsible for make scroll in quinto andar page
         base on below divs.
 
     Parameters:
-            uuid: Unique Id.
+            x_request_id: Unique Id.
             div_number_row: Number of the block in row in the page
             driver: google chrome instance
 
@@ -28,4 +30,4 @@ def scroll_quinto_andar_page(uuid: str, div_number_row: int, driver):
             actions.move_to_element(element)
             actions.perform()
     except (ElementClickInterceptedException, AttributeError) as exception:
-        error_handler(uuid=uuid, exception=exception)
+        error_handler(x_request_id=x_request_id, exception=exception)

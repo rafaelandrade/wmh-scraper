@@ -5,28 +5,31 @@ from selenium.common.exceptions import NoSuchElementException
 from helpers.error_handler.main import error_handler
 from utils.sleep import sleep
 
+from helpers.logger.console_logger import log
 
-def get_rent_values(uuid: str, driver) -> dict:
+
+def get_rent_values(x_request_id: str, driver) -> dict:
     """
         Function responsible for get all values about the rent of the residence.
 
         Parameters:
-        -----------
-                uuid: unique id
+                x_request_id: unique id
                 driver: google chrome instance
     Returns:
         dict
     """
-    print("Procurando pelos valores dos alugues da casa")
+    log(
+        x_request_id=x_request_id,
+        message="Searching for a values of the rent...",
+    )
     try:
         sleep(number=2)
-        print("começando emmm....")
         rent_values_data = driver.find_element_by_xpath(
             "/html/body/div[1]/div/div/main/section/div/div[2]/section/div/ul"
         )
 
         if rent_values_data:
-            print(f"{uuid} - Encontrado info sobre os alugueis")
+            log(x_request_id=x_request_id, message="Found the values...")
 
             rent_values_dict = {
                 "rent_without_taxes": int,
@@ -52,4 +55,4 @@ def get_rent_values(uuid: str, driver) -> dict:
 
             return rent_values_dict
     except (AttributeError, NoSuchElementException) as exception:
-        error_handler(uuid=uuid, exception=exception)
+        error_handler(x_request_id=x_request_id, exception=exception)

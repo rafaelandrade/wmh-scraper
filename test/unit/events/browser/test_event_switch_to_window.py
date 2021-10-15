@@ -32,4 +32,4 @@ def test_event_switch_right_window():
             return testHandler
 
     driver = Driver()
-    assert event_switch_right_window(driver=driver) is None
+    assert event_switch_right_window(x_request_id="", driver=driver) is None

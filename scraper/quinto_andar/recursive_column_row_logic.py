@@ -4,17 +4,17 @@ from events.browser_interaction.event_scroll_qa_page import (
 
 
 def recursive_column_row_logic(
-    uuid: str,
+    x_request_id: str,
     div_number_row: int,
     div_number_column: int,
     limit_scraper: int,
     driver,
-):
+) -> tuple:
     """
     Function responsible for deal with recursive column row scraper logic.
 
     Parameters:
-        uuid: Unique id.
+        x_request_id: Unique id.
         div_number_row: Number of the block in row in the page
         div_number_column: Number of the block in column in page
         limit_scraper: Number responsible for define the limit of scraper to the page
@@ -29,12 +29,13 @@ def recursive_column_row_logic(
     Returns:
         void
     """
-    print(uuid)
     if (limit_scraper - 1) % 3 == 0:
         # These represent number of row adding 1
         # and number of column return to 1
         scroll_quinto_andar_page(
-            uuid=uuid, div_number_row=div_number_row, driver=driver
+            x_request_id=x_request_id,
+            div_number_row=div_number_row,
+            driver=driver,
         )
         return div_number_row + 1, 1
 

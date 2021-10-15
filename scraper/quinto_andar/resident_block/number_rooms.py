@@ -6,28 +6,31 @@ from helpers.error_handler.main import error_handler
 from utils.sleep import sleep
 from utils.veritification_string_has_digit import verification_string_has_digit
 
+from helpers.logger.console_logger import log
 
-def number_of_rooms(uuid: str, driver) -> int:
+
+def number_of_rooms(x_request_id: str, driver) -> int:
     """
         Function responsible for return number of rooms.
 
         Parameters:
-        -----------
-                uuid: unique id
+                x_request_id: unique id
                 driver: google chrome instance
     Returns:
         Bool <True or False>
     """
-    print("Procurando pela numero de quartos")
+    log(x_request_id=x_request_id, message="Searching for number of rooms...")
     sleep(number=2)
     try:
-        print("começando emmm....")
         number_rooms_data = driver.find_element_by_xpath(
             "/html/body/div[1]/div/div/main/section/div/div[1]/div/div[2]/div/div[2]/div/div"
         )
 
         if number_rooms_data:
-            print(f"{uuid} - Encontrado info sobre numero de quartos")
+            log(
+                x_request_id=x_request_id,
+                message="Found information about number of rooms...",
+            )
 
             number_rooms = number_rooms_data.text
 
@@ -35,8 +38,10 @@ def number_of_rooms(uuid: str, driver) -> int:
             # then going to return. If do not have then return 0.
             return (
                 int(re.findall(r"\d+", number_rooms)[0])
-                if verification_string_has_digit(uuid=uuid, text=number_rooms)
+                if verification_string_has_digit(
+                    x_request_id=x_request_id, text=number_rooms
+                )
                 else 0
             )
     except (AttributeError, NoSuchElementException) as exception:
-        error_handler(uuid=uuid, exception=exception)
+        error_handler(x_request_id=x_request_id, exception=exception)

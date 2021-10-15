@@ -17,9 +17,11 @@ from scraper.quinto_andar.recursive_column_row_logic import (
 from scraper.quinto_andar.resident_block.main import get_resident_block_data
 from utils.sleep import sleep
 
+from helpers.logger.console_logger import log
+
 
 def recursive_scraper_logic(
-    uuid: str,
+    x_request_id: str,
     div_number_row: int,
     div_number_column: int,
     limit_scraper: int,
@@ -30,7 +32,7 @@ def recursive_scraper_logic(
         Function responsible for deal with recursive scraper logic.
 
     Parameters:
-        uuid: Unique id.
+        x_request_id: Unique id.
         div_number_row: Number of the block in row in the page
         div_number_column: Number of the block in column in page
         limit_scraper: Number responsible for define the limit of scraper to the page
@@ -48,10 +50,11 @@ def recursive_scraper_logic(
     timeout = 900
 
     sleep(15)
+
     # Scraper will happen for 15 minutes #
     if time.time() < timeout_start + timeout:
         link = get_link_of_resident_block(
-            uuid=uuid,
+            x_request_id=x_request_id,
             div_number_row=div_number_row,
             div_number_column=div_number_column,
             driver=driver,
@@ -60,41 +63,46 @@ def recursive_scraper_logic(
         quinto_andar_data = QuintoAndarSchema()
 
         if link:
-            main_window = save_window_opener(driver=driver)
-            open_new_tab(driver=driver, link=link)
-            event_switch_right_window(driver=driver)
+            main_window = save_window_opener(
+                x_request_id=x_request_id, driver=driver
+            )
+            open_new_tab(x_request_id=x_request_id, link=link)
+            event_switch_right_window(x_request_id=x_request_id, driver=driver)
             event_switch_to_tab_window(main_window=main_window, driver=driver)
             sleep(8)
-            print("Iniciando a coleta dos dados")
+            log(
+                x_request_id=x_request_id,
+                message="Initiation of collection of data...",
+            )
             get_resident_block_data(
-                uuid=uuid, quinto_andar_data=quinto_andar_data, driver=driver
+                x_request_id=x_request_id,
+                quinto_andar_data=quinto_andar_data,
+                driver=driver,
             )
             close_current_tab(driver=driver, main_window=main_window)
-            print("\n\n VOLTANDO PARA A TELA PRINCIPAL ---")
+            log(x_request_id=x_request_id, message="Return to main screen...")
             sleep(1)
             driver.switch_to_window(main_window)
 
         div_number_row, div_number_column = recursive_column_row_logic(
-            uuid=uuid,
+            x_request_id=x_request_id,
             div_number_column=div_number_column,
             div_number_row=div_number_row,
             limit_scraper=limit_scraper,
             driver=driver,
         )
 
+        log(
+            x_request_id=x_request_id,
+            message=f"Data get is: {quinto_andar_data}...",
+        )
         limit_scraper += 1
 
-        print(f"QUINTOOOOOO ANDARRRR \n\n\n{quinto_andar_data}")
-
         recursive_scraper_logic(
-            uuid=uuid,
+            x_request_id=x_request_id,
             div_number_row=div_number_row,
             div_number_column=div_number_column,
             limit_scraper=limit_scraper,
             timeout_start=timeout_start,
             driver=driver,
         )
-
-    print(
-        f"SAIIIIIUUUU DO IF COM LINHA VALOR {div_number_row} E COLUNA {div_number_column}"
-    )

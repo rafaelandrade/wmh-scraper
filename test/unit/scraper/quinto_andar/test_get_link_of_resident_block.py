@@ -19,7 +19,7 @@ def test_get_link_of_resident_block_return_none():
     driver = Driver()
     assert (
         get_link_of_resident_block(
-            uuid="",
+            x_request_id="",
             div_number_row=div_number_row,
             div_number_column=div_number_column,
             driver=driver,
@@ -44,7 +44,7 @@ def test_get_link_of_resident_block_return_link():
     driver = Driver()
     assert (
         get_link_of_resident_block(
-            uuid="",
+            x_request_id="",
             div_number_row=div_number_row,
             div_number_column=div_number_column,
             driver=driver,

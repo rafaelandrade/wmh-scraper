@@ -3,12 +3,14 @@ from events.consumer.validate_message_data import validate_message_data
 from consumer.executor import executor
 
 
-def consumer_message_handler(uuid: str, message: any, driver: any) -> None:
+def consumer_message_handler(
+    x_request_id: str, message: any, driver: any
+) -> None:
     """
     Function responsible for handler with SQS Messages
 
     Parameters:
-        uuid: id unique
+        x_request_id: id unique
         message: sqs message instance
         driver: google chrome instance
 
@@ -16,12 +18,14 @@ def consumer_message_handler(uuid: str, message: any, driver: any) -> None:
         None
     """
     try:
-        data = validate_message_data(uuid=uuid, message=message)
+        data = validate_message_data(
+            x_request_id=x_request_id, message=message
+        )
         executor(
-            uuid=uuid,
+            x_request_id=x_request_id,
             consumer=data.get("data").get("consumer_name"),
             properties=data.get("data").get("type_scraper"),
             driver=driver,
         )
     except AttributeError as exception:
-        error_handler(uuid=uuid, exception=exception)
+        error_handler(x_request_id=x_request_id, exception=exception)

@@ -14,6 +14,9 @@ def test_consumer_message_handler(mocker):
         "consumer.consumer_message_handler.executor", return_values={}
     )
 
-    assert consumer_message_handler(uuid="", message={}, driver={}) is None
+    assert (
+        consumer_message_handler(x_request_id="", message={}, driver={})
+        is None
+    )
     assert mocker_validate_message.call_count == 1
     assert mocker_executor.call_count == 1

@@ -1,12 +1,15 @@
 from botocore.exceptions import ClientError
 from helpers.error_handler.main import error_handler
 
+from helpers.logger.console_logger import log
 
-def delete_message(uuid: str, message) -> None:
+
+def delete_message(x_request_id: str, message) -> None:
     """
     Delete an message from a queue.
+
     Parameters:
-        uuid: Unique id str
+        x_request_id: Unique id str
         message: The message to delete. The message's queue URL is
             contained in the message's metadata.
 
@@ -15,6 +18,9 @@ def delete_message(uuid: str, message) -> None:
     """
     try:
         message.delete()
-        print("Message was deleted with success.")
+        log(
+            x_request_id=x_request_id,
+            message="Message have been deleted with success.",
+        )
     except (ClientError, AttributeError) as exception:
-        error_handler(uuid=uuid, exception=exception)
+        error_handler(x_request_id=x_request_id, exception=exception)

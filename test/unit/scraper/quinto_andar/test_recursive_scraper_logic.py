@@ -31,7 +31,7 @@ def test_recursive_scraper_logic_with_time_lower_then_timeout(mocker):
 
     assert (
         recursive_scraper_logic(
-            uuid="",
+            x_request_id="",
             div_number_row=div_number_row,
             div_number_column=div_number_column,
             limit_scraper=limit_scraper,

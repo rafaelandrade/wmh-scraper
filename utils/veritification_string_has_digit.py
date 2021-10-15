@@ -1,17 +1,18 @@
-def verification_string_has_digit(uuid: str, text: str) -> bool:
+from helpers.logger.console_logger import log
+
+
+def verification_string_has_digit(x_request_id: str, text: str) -> bool:
     """
     Function responsible for verify if text has an digit or not.
 
     Parameters:
-    -----------
-            uuid: unique id
+            x_request_id: unique id
             text: sentence that going to be verified
 
     Returns:
-    --------
         bool: True or False
     """
-    print(f"{uuid} - Going to verify if text has digit")
+    log(x_request_id=x_request_id, message="Verification if text has digit...")
     if text is None:
         return False
     return any(map(str.isdigit, text))

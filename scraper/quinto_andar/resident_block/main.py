@@ -24,45 +24,55 @@ from scraper.quinto_andar.resident_block.type_of_residence import (
 
 
 def get_resident_block_data(
-    uuid: str, quinto_andar_data: QuintoAndarSchema, driver
+    x_request_id: str, quinto_andar_data: QuintoAndarSchema, driver
 ):
     """Function responsible for have functions to get data
     of specific building in homepage.
 
     Parameters:
-        uuid: Str
+        x_request_id: Str
         quinto_andar_data: QuintoAndarSchema
         driver: Google Chrome instance
 
     Returns:
         any
     """
-    localization_data = resident_localization_data(uuid=uuid, driver=driver)
+    localization_data = resident_localization_data(
+        x_request_id=x_request_id, driver=driver
+    )
 
     if len(localization_data) == 3:
         quinto_andar_data.street_name = localization_data[0]
         quinto_andar_data.district_name = localization_data[1]
         quinto_andar_data.state_name = localization_data[2]
 
-    quinto_andar_data.number_rooms = number_of_rooms(uuid=uuid, driver=driver)
+    quinto_andar_data.number_rooms = number_of_rooms(
+        x_request_id=x_request_id, driver=driver
+    )
 
     quinto_andar_data.number_bathrooms = get_number_bathrooms(
-        uuid=uuid, driver=driver
+        x_request_id=x_request_id, driver=driver
     )
     quinto_andar_data.number_parking_space = get_number_parking_space(
-        uuid=uuid, driver=driver
+        x_request_id=x_request_id, driver=driver
     )
-    quinto_andar_data.pet_flag = pet_flag(uuid=uuid, driver=driver)
-    quinto_andar_data.metro_flag = get_metro_flag(uuid=uuid, driver=driver)
+    quinto_andar_data.pet_flag = pet_flag(
+        x_request_id=x_request_id, driver=driver
+    )
+    quinto_andar_data.metro_flag = get_metro_flag(
+        x_request_id=x_request_id, driver=driver
+    )
     quinto_andar_data.furniture_flag = get_furniture_flag(
-        uuid=uuid, driver=driver
+        x_request_id=x_request_id, driver=driver
     )
-    quinto_andar_data.size_residence = residence_size(uuid=uuid, driver=driver)
+    quinto_andar_data.size_residence = residence_size(
+        x_request_id=x_request_id, driver=driver
+    )
     quinto_andar_data.type_building = get_type_residence(
-        uuid=uuid, driver=driver
+        x_request_id=x_request_id, driver=driver
     )
 
-    rent_values = get_rent_values(uuid=uuid, driver=driver)
+    rent_values = get_rent_values(x_request_id=x_request_id, driver=driver)
 
     quinto_andar_data.rent_price_without_tax = rent_values[
         "rent_without_taxes"

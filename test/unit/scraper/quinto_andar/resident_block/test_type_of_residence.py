@@ -15,7 +15,7 @@ def test_type_of_residence_returning_house():
             return testHandler
 
     driver = Driver()
-    result = get_type_residence(uuid="", driver=driver)
+    result = get_type_residence(x_request_id="", driver=driver)
     assert result == "house"
     assert type(result) is str
 
@@ -32,6 +32,6 @@ def test_type_of_residence_returning_apartment():
             return testHandler
 
     driver = Driver()
-    result = get_type_residence(uuid="", driver=driver)
+    result = get_type_residence(x_request_id="", driver=driver)
     assert result == "apartment"
     assert type(result) is str

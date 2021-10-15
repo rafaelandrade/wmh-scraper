@@ -1,13 +1,16 @@
 from consumer.consumers import consumers_object
+from helpers.logger.console_logger import log
 
 
-def executor(uuid: str, consumer: str, properties: any, driver: any) -> any:
+def executor(
+    x_request_id: str, consumer: str, properties: any, driver: any
+) -> any:
     """
     Function responsible for execute a specific consumer
         that is declared in consumers object
 
     Parameters:
-        uuid: str
+        x_request_id: str
         consumer: str
         properties: any
         driver: any
@@ -16,13 +19,18 @@ def executor(uuid: str, consumer: str, properties: any, driver: any) -> any:
         None
     """
     if consumer in consumers_object:
-        print(
-            f"Going to execute consumer {consumer}... With follow properties {properties}"
+        log(
+            x_request_id=x_request_id,
+            message=f"Going to execute consumer {consumer}... With follow properties {properties}",
         )
         return consumers_object.get(consumer)(
-            uuid=uuid, properties=properties, driver=driver
+            x_request_id=x_request_id, properties=properties, driver=driver
         )
-    print("consumer object not found going to execute the default")
+
+    log(
+        x_request_id=x_request_id,
+        message="Consumer object not found going to execute default...",
+    )
     return consumers_object.get("default")(
-        uuid=uuid, properties=properties, driver=driver
+        x_request_id=x_request_id, properties=properties, driver=driver
     )

@@ -14,7 +14,4 @@ def test_receive_messages():
 
     queue = Queue()
 
-    assert (
-        receive_messages(uuid="", queue=queue, max_number=1, wait_time=2)
-        is not None
-    )
+    assert receive_messages(queue=queue, max_number=1, wait_time=2) is not None

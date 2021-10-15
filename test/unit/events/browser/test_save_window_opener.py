@@ -11,4 +11,4 @@ def test_save_window_opener():
         current_window_handle = None
 
     driver = Driver()
-    assert save_window_opener(driver=driver) is None
+    assert save_window_opener(x_request_id="", driver=driver) is None

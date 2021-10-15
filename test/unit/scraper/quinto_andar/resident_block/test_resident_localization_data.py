@@ -15,7 +15,7 @@ def test_resident_localization_data_with_localization_as_response():
             return testHandler
 
     driver = Driver()
-    result = resident_localization_data(uuid="", driver=driver)
+    result = resident_localization_data(x_request_id="", driver=driver)
     assert type(result) is list
 
 
@@ -31,5 +31,5 @@ def test_resident_localization_data_with_none_as_response():
             return testHandler
 
     driver = Driver()
-    result = resident_localization_data(uuid="", driver=driver)
+    result = resident_localization_data(x_request_id="", driver=driver)
     assert result is None

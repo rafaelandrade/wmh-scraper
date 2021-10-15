@@ -9,4 +9,4 @@ def test_open_page():
             return None
 
     driver = Driver()
-    assert open_page(uuid="", driver=driver, link="") is None
+    assert open_page(x_request_id="", driver=driver, link="") is None
