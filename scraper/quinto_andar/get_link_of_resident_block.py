@@ -21,11 +21,12 @@ def get_link_of_resident_block(
     """
     log(
         x_request_id=x_request_id,
-        message="Getting link of a respective residence...",
+        message=f"Getting link of a respective residence base on row "
+        f"{div_number_row} and column {div_number_column}...",
     )
     try:
         link = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/main"
+            "/html/body/div[1]/main"
             "/section[2]/div[2]/div"
             f"/div[1]/div[{div_number_row}]/div[{div_number_column}]/div/a"
         )

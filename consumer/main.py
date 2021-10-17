@@ -7,6 +7,9 @@ from helpers.request_identificator_handler.request_handler import (
     request_handler,
 )
 from helpers.logger.console_logger import log
+from events.consumer.dealing_with_empty_queue import dealing_with_empty_queue
+
+from utils.sleep import sleep
 
 
 def main(driver: any, queue: any) -> None:
@@ -24,12 +27,21 @@ def main(driver: any, queue: any) -> None:
         while True:
             messages = receive_messages(queue=queue, max_number=1, wait_time=0)
             if len(messages) == 0:
-                log(x_request_id="", message="Waiting messages...")
+                log(
+                    x_request_id="",
+                    message="QUEUE with 0 messages, going to send default event in 15 minutes...",
+                )
+                sleep(number=900)
+                dealing_with_empty_queue(queue=queue)
             else:
                 for message in messages:
-                    x_request_id = request_handler(message=message)
+                    x_request_id = request_handler(message=message.body)
+                    log(
+                        x_request_id=x_request_id,
+                        message="Receive message going to start scraper flow...",
+                    )
                     consumer_message_handler(
-                        message=message,
+                        message=message.body,
                         x_request_id=x_request_id,
                         driver=driver,
                     )

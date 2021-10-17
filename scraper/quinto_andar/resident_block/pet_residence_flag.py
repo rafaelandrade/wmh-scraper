@@ -20,7 +20,7 @@ def pet_flag(x_request_id: str, driver) -> bool:
     sleep(number=2)
     try:
         pet_flag_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div/main/section/div/div[1]/div/div[2]/div/div[6]/div/div/span"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[2]/div/div[6]/div/div/span"
         )
 
         if pet_flag_data:

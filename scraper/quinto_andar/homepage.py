@@ -42,7 +42,7 @@ def homepage(x_request_id: str, driver) -> None:
         driver=driver,
         link=quinto_andar.get("sao_paulo"),
     )
-    verification_homepage_opened(driver=driver)
+    # verification_homepage_opened(driver=driver)
 
     scraper_flow(x_request_id=x_request_id, driver=driver)
     finish_session(x_request_id=x_request_id, driver=driver)

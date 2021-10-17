@@ -26,7 +26,7 @@ def get_number_bathrooms(x_request_id: str, driver) -> int:
     sleep(number=2)
     try:
         number_bathrooms_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div/main/section/div/div[1]/div/div[2]/div/div[3]/div/div/span"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[2]/div/div[3]/div/div/span"
         )
         if number_bathrooms_data:
             log(

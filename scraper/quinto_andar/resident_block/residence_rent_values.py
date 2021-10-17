@@ -25,7 +25,7 @@ def get_rent_values(x_request_id: str, driver) -> dict:
     try:
         sleep(number=2)
         rent_values_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div/main/section/div/div[2]/section/div/ul"
+            "/html/body/div[1]/div/main/section/div/div[2]/section/div/ul"
         )
 
         if rent_values_data:

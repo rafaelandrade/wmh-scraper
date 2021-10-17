@@ -21,9 +21,8 @@ def scroll_quinto_andar_page(
     """
     try:
         element = driver.find_element_by_xpath(
-            f"/html/body/div[1]/div/main/section[2]/div[2]/div/div[1]/div[{div_number_row+2}]"
+            f"/html/body/div[1]/main/section[2]/div[2]/div/div[1]/div[{div_number_row+2}]"
         )
-
         sleep(number=3)
         if element:
             actions = ActionChains(driver)

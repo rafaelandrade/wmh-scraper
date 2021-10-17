@@ -20,7 +20,7 @@ def get_metro_flag(x_request_id: str, driver) -> bool:
     sleep(number=2)
     try:
         metro_flag_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div/main/section/div/div[1]/div/div[2]/div/div[8]/div/div/span"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[2]/div/div[8]/div/div/span"
         )
 
         if metro_flag_data:

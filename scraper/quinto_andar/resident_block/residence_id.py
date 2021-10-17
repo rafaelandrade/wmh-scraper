@@ -9,39 +9,37 @@ from utils.veritification_string_has_digit import verification_string_has_digit
 from helpers.logger.console_logger import log
 
 
-def residence_size(x_request_id: str, driver) -> int:
+def get_residence_id(x_request_id: str, driver: any) -> int:
     """
-        Function responsible for return the size of the residence.
+    Function responsible for return id of residence.
 
-        Parameters:
-                x_request_id: unique id
-                driver: google chrome instance
+    Parameters:
+            x_request_id: unique id
+            driver: google chrome instance
     Returns:
-        int: size of residence
+        int
     """
-    log(
-        x_request_id=x_request_id,
-        message="Searching for the number of bedrooms...",
-    )
+    log(x_request_id=x_request_id, message="Searching for the residence id...")
     sleep(number=2)
     try:
-        size_residence_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/main/section/div/div[1]/div/div[2]/div/div[1]/div/div/span"
+        residence_id = driver.find_element_by_xpath(
+            "/html/body/div[1]/div/main/section/div/div[1]/nav/ol/li[5]/a"
         )
 
-        if size_residence_data:
+        if residence_id:
             log(
                 x_request_id=x_request_id,
-                message="Found information about bedrooms...",
+                message="Found id of residence...",
             )
 
-            size_residence = size_residence_data.text
+            residence_id_text = residence_id.text
+
             # Start verification if has digit
             # then going to return. If do not have then return 0.
             return (
-                int(re.findall(r"\d+", size_residence)[0])
+                int(re.findall(r"\d+", residence_id_text)[0])
                 if verification_string_has_digit(
-                    x_request_id=x_request_id, text=size_residence
+                    x_request_id=x_request_id, text=residence_id_text
                 )
                 else 0
             )

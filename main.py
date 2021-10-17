@@ -8,11 +8,14 @@ from concurrent.futures import ThreadPoolExecutor, wait
 
 from consumer.consumers import consumers_object
 from consumer.main import main
+from config.aws.sqs_connection import sqs_connection
+from helpers.logger.console_logger import log
 
 
 sentry_sdk.init(
     config.get("url_sentry"), environment=config.get("environment")
 )
+sqs = sqs_connection()
 
 
 def thread(thread_number: int) -> None:
@@ -31,8 +34,10 @@ def thread(thread_number: int) -> None:
         options=options,
         executable_path="/Users/rafaelandrade/Downloads/chromedriver",
     )
-
-    main(driver=driver, queue=queues.get(f"{thread_number}"))
+    queue = queues.get(f"{thread_number}")
+    log(message=f"QUEUE START {queue}", x_request_id="")
+    queue = sqs.get_queue_by_name(QueueName=queue)
+    main(driver=driver, queue=queue)
 
 
 def principal() -> None:

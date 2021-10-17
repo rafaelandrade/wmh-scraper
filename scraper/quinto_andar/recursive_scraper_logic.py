@@ -94,7 +94,7 @@ def recursive_scraper_logic(
 
         log(
             x_request_id=x_request_id,
-            message=f"Data get is: {quinto_andar_data}...",
+            message=f"Data of residence is: {quinto_andar_data}",
         )
         limit_scraper += 1
 

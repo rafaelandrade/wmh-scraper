@@ -23,7 +23,7 @@ def number_of_rooms(x_request_id: str, driver) -> int:
     sleep(number=2)
     try:
         number_rooms_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div/main/section/div/div[1]/div/div[2]/div/div[2]/div/div"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[2]/div/div[2]/div/div"
         )
 
         if number_rooms_data:

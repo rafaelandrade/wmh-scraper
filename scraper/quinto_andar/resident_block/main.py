@@ -21,6 +21,7 @@ from scraper.quinto_andar.resident_block.resident_localization_data import (
 from scraper.quinto_andar.resident_block.type_of_residence import (
     get_type_residence,
 )
+from scraper.quinto_andar.resident_block.residence_id import get_residence_id
 
 
 def get_resident_block_data(
@@ -44,7 +45,12 @@ def get_resident_block_data(
     if len(localization_data) == 3:
         quinto_andar_data.street_name = localization_data[0]
         quinto_andar_data.district_name = localization_data[1]
-        quinto_andar_data.state_name = localization_data[2]
+        # Avoiding error after getting São Paulo in state name #
+        quinto_andar_data.state_name = (
+            "São Paulo"
+            if "Paulo" in localization_data[2]
+            else localization_data[2]
+        )
 
     quinto_andar_data.number_rooms = number_of_rooms(
         x_request_id=x_request_id, driver=driver
@@ -82,5 +88,10 @@ def get_resident_block_data(
     quinto_andar_data.fire_insurance = rent_values["fire_insurance"]
     quinto_andar_data.service_tax = rent_values["service_tax"]
     quinto_andar_data.total_rent_price = rent_values["total_rent_value"]
+
+    quinto_andar_data.residence_id = get_residence_id(
+        x_request_id=x_request_id, driver=driver
+    )
+    quinto_andar_data.link_apartment = driver.current_url
 
     return quinto_andar_data

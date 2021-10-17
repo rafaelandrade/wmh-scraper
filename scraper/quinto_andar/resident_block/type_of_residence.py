@@ -23,7 +23,7 @@ def get_type_residence(x_request_id: str, driver) -> str:
     sleep(number=2)
     try:
         type_residence_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div/main/section/div/div[1]/div/div[1]/h1"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[1]/div[1]/h1"
         )
 
         if type_residence_data:

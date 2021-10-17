@@ -24,7 +24,7 @@ def resident_localization_data(x_request_id: str, driver) -> list:
     sleep(number=7)
     try:
         localization_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div/main/section/div/div[1]/div/div[1]/div[1]/p"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[1]/div[2]/p"
         )
 
         if localization_data:
