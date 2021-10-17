@@ -1,4 +1,7 @@
 import json
+
+from botocore.exceptions import ClientError
+
 from helpers.error_handler.main import error_handler
 from events.consumer.send_message import send_message
 
@@ -30,7 +33,7 @@ def dealing_with_empty_queue(queue: any) -> None:
             message_body=json.dumps(data),
             message_attributes={},
         )
-    except Exception as exception:
+    except (AttributeError, ClientError) as exception:
         error_handler(
             _msg="Exception occurred in dealing_with_empty_queue",
             exception=exception,

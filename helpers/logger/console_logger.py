@@ -17,6 +17,16 @@ logger.addHandler(coralogix_handler)
 
 
 def log(message: json, x_request_id: str) -> None:
+    """
+    Function responsible for send log to Coralogix service.
+
+    Parameters:
+        message: json
+        x_request_id: str
+
+    Returns:
+        None
+    """
     if PRIVATE_KEY is not None:
         logger.info(
             json.dumps({"x_request_id": x_request_id, "message": message})
@@ -25,4 +35,13 @@ def log(message: json, x_request_id: str) -> None:
 
 
 def err(error) -> None:
+    """
+    Function responsible for send error to Coralogix service.
+
+    Parameters:
+        error: exception
+
+    Returns:
+        None
+    """
     logger.error(error)

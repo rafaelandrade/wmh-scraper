@@ -67,7 +67,7 @@ def test_get_resident_block_data(mocker):
         x_request_id="", quinto_andar_data=quinto_andar_schema, driver=driver
     )
     assert response is not None
-    assert type(response) == QuintoAndarSchema
+    assert type(response) is QuintoAndarSchema
     assert response.link_apartment == "www.google.com.br"
     assert mock_localization_data.call_count == 1
     assert mock_number_rooms.call_count == 1
