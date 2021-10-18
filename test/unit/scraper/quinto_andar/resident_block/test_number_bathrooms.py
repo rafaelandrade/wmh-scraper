@@ -15,7 +15,7 @@ def test_number_bathrooms_with_5_as_number_of_bathrooms():
             return testHandler
 
     driver = Driver()
-    result = get_number_bathrooms(uuid="", driver=driver)
+    result = get_number_bathrooms(x_request_id="", driver=driver)
     assert result == 5
     assert type(result) is int
 
@@ -32,5 +32,5 @@ def test_number_bathrooms_with_0_bathrooms_find():
             return testHandler
 
     driver = Driver()
-    result = get_number_bathrooms(uuid="", driver=driver)
+    result = get_number_bathrooms(x_request_id="", driver=driver)
     assert result == 0

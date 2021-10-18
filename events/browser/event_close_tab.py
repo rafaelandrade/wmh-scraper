@@ -8,7 +8,6 @@ def close_current_tab(driver, main_window) -> None:
     Returns:
         void
     """
-    print("Fechando a aba aberta")
     screens = driver.window_handles
     new_screen_id = [screen for screen in screens if screen != main_window][0]
     driver.switch_to.window(new_screen_id)

@@ -15,7 +15,7 @@ def test_residence_rent_values_with_rent_values_in_response():
             return testHandler
 
     driver = Driver()
-    result = get_rent_values(uuid="", driver=driver)
+    result = get_rent_values(x_request_id="", driver=driver)
     assert type(result) is dict
 
 
@@ -31,5 +31,5 @@ def test_resident_localization_data_with_none_as_response():
             return testHandler
 
     driver = Driver()
-    result = get_rent_values(uuid="", driver=driver)
+    result = get_rent_values(x_request_id="", driver=driver)
     assert result is None

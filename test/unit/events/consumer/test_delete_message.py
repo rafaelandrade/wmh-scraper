@@ -13,7 +13,7 @@ def test_delete_message():
             return {}
 
     message = Message()
-    assert delete_message(uuid="", message=message) is None
+    assert delete_message(x_request_id="", message=message) is None
 
 
 def test_delete_message_error(mocker):
@@ -24,6 +24,6 @@ def test_delete_message_error(mocker):
     mocker_error_handler = mocker.patch(
         "events.consumer.delete_message.error_handler", return_value=None
     )
-    delete_message(uuid="", message={})
+    delete_message(x_request_id="", message={})
 
     assert mocker_error_handler.call_count == 1

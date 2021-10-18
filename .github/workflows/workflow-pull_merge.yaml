@@ -1,15 +1,15 @@
-name: Python Master Workflow
+name: Python Pull Request Workflow
 on:
   push:
     branches:
       - master
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [ opened, synchronize, reopened ]
 jobs:
-  codecov:
-    name: Codecov Workflow
-    runs-on: ubuntu-18.04
 
+  qa:
+    name: Quality check
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
       - name: Set up Python
@@ -31,3 +31,10 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.xml
           flags: unittests
+      - name: Wemake Python Stylguide
+        uses: wemake-services/wemake-python-styleguide@0.13.4
+        continue-on-error: true
+        with:
+          reporter: 'github-pr-review'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

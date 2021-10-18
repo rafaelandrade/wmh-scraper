@@ -15,7 +15,7 @@ def test_get_number_parking_space_with_1_parking_space():
             return testHandler
 
     driver = Driver()
-    result = get_number_parking_space(uuid="", driver=driver)
+    result = get_number_parking_space(x_request_id="", driver=driver)
     assert result == 1
     assert type(result) is int
 
@@ -32,6 +32,6 @@ def test_get_number_parking_space_with_0_parking_space():
             return testHandler
 
     driver = Driver()
-    result = get_number_parking_space(uuid="", driver=driver)
+    result = get_number_parking_space(x_request_id="", driver=driver)
     assert result == 0
     assert type(result) is int

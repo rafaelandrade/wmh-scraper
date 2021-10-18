@@ -13,7 +13,7 @@ def test_residence_size_with_93_as_response():
             return testHandler
 
     driver = Driver()
-    result = residence_size(uuid="", driver=driver)
+    result = residence_size(x_request_id="", driver=driver)
     assert result == 93
     assert type(result) is int
 
@@ -30,6 +30,6 @@ def test_residence_size_with_0_as_response():
             return testHandler
 
     driver = Driver()
-    result = residence_size(uuid="", driver=driver)
+    result = residence_size(x_request_id="", driver=driver)
     assert result == 0
     assert type(result) is int

@@ -1,8 +1,11 @@
-def open_page(uuid: str, driver, link: str) -> None:
+from helpers.logger.console_logger import log
+
+
+def open_page(x_request_id: str, driver, link: str) -> None:
     """Function responsible for open a web page, base on specific Link.
 
     Parameters:
-            uuid: Unique id.
+            x_request_id: Unique id.
             driver: Google Chrome instance.
             link: URL of WebPage.
 
@@ -12,4 +15,7 @@ def open_page(uuid: str, driver, link: str) -> None:
     if link:
         driver.get(link)
 
-    print("Pagina aberta!")
+    log(
+        x_request_id=x_request_id,
+        message=f"Page was open with follow link {link}...",
+    )

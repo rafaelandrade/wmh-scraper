@@ -18,7 +18,7 @@ def test_recursive_column_row_logic_with_div_number_column_plus_1():
     div_number_row = fake.unique.random_int()
     limit_scraper = 2
     response = recursive_column_row_logic(
-        uuid="",
+        x_request_id="",
         div_number_row=div_number_row,
         div_number_column=div_number_column,
         limit_scraper=limit_scraper,
@@ -45,7 +45,7 @@ def test_recursive_column_row_logic_with_div_number_row_plus_1(mocker):
     div_number_row = fake.unique.random_int()
     limit_scraper = 4
     response = recursive_column_row_logic(
-        uuid="",
+        x_request_id="",
         div_number_row=div_number_row,
         div_number_column=div_number_column,
         limit_scraper=limit_scraper,

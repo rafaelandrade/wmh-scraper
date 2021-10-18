@@ -9,7 +9,9 @@ def test_validate_message():
         message have events in object
     """
     data = {"events": "test"}
-    response = validate_message_data(uuid="str", message=json.dumps(data))
+    response = validate_message_data(
+        x_request_id="str", message=json.dumps(data)
+    )
     assert response == data
 
 
@@ -19,6 +21,8 @@ def test_validate_message_without_events():
         without events in object
     """
     data = {}
-    response = validate_message_data(uuid="str", message=json.dumps(data))
+    response = validate_message_data(
+        x_request_id="str", message=json.dumps(data)
+    )
 
     assert response is None

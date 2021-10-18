@@ -13,7 +13,7 @@ def test_number_rooms_with_2_as_number_of_rooms():
             return testHandler
 
     driver = Driver()
-    result = number_of_rooms(uuid="", driver=driver)
+    result = number_of_rooms(x_request_id="", driver=driver)
     assert result == 2
     assert type(result) is int
 
@@ -30,5 +30,5 @@ def test_number_rooms_with_0_rooms_find():
             return testHandler
 
     driver = Driver()
-    result = number_of_rooms(uuid="", driver=driver)
+    result = number_of_rooms(x_request_id="", driver=driver)
     assert result == 0

@@ -22,3 +22,4 @@ class QuintoAndarSchema(BaseModel):
     pet_flag: bool = False
     metro_flag: bool = False
     furniture_flag: bool = False
+    residence_id: int = 0
