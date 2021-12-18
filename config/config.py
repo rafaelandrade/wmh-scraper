@@ -19,3 +19,19 @@ if ENVIRONMENT == "development":
 
     # AWS - QUEUE #
     config["aws_queue_default"] = environ.get("AWS_QUEUE_SCRAPER_DEFAULT")
+
+    # ENDPOINTS - MS #
+    config["wmh_backoffice_endpoint"] = environ.get(
+        "DEVELOPMENT_BACKOFFICE_ENDPOINT"
+    )
+    config["wmh_backoffice_token"] = environ.get(
+        "DEVELOPMENT_BACKOFFICE_TOKEN"
+    )
+
+
+if ENVIRONMENT == "production":
+    # ENDPOINTS - MS #
+    config["wmh_backoffice_endpoint"] = environ.get(
+        "PRODUCTION_BACKOFFICE_ENDPOINT"
+    )
+    config["wmh_backoffice_token"] = environ.get("PRODUCTION_BACKOFFICE_TOKEN")

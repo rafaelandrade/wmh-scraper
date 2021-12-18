@@ -16,6 +16,9 @@ def get_link_of_resident_block(
             div_number_column: Number of the block in column in page
             driver: Google Chrome instance
 
+        uses: wemake-services/wemake-python-styleguide@0.13.4
+        continue-on-error: true
+        with:
         Returns
             Link <str>
     """
