@@ -8,9 +8,10 @@ from events.browser.event_switch_to_tab_window import (
 )
 from events.browser.event_switch_to_window import event_switch_right_window
 from schemas.QuintoAndarSchema import QuintoAndarSchema
-from services.backoffice_services.create.create_residence_address import (
-    create_residence_address,
+from services.backoffice_services.create.quinto_andar.create_residence_flow import (
+    creation_residence_data,
 )
+
 from scraper.quinto_andar.get_link_of_resident_block import (
     get_link_of_resident_block,
 )
@@ -82,10 +83,9 @@ def recursive_scraper_logic(
                 quinto_andar_data=quinto_andar_data,
                 driver=driver,
             )
-            residence_address_id = create_residence_address(
+            creation_residence_data(
                 x_request_id=x_request_id, residence_data=resident_data
             )
-            print(residence_address_id)  # continue implementation #
             close_current_tab(driver=driver, main_window=main_window)
             log(x_request_id=x_request_id, message="Return to main screen...")
             sleep(1)
