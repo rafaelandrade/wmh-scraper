@@ -36,4 +36,5 @@ def create_residence(
         x_request_id=x_request_id, data=data, table_name=table_name.residence
     )
 
+    residence = dict(residence)
     return residence.get("id", None)

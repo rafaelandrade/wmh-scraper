@@ -24,9 +24,3 @@ class QuintoAndarSchema(BaseModel):
     furniture_flag: bool = False
     residence_id: int = 0
     source: str = "QuintoAndar"
-
-    @classmethod
-    def name(cls, val):
-        return {
-            v: k for k, v in dict(vars(cls)).items() if isinstance(v, int)
-        }.get(val, None)

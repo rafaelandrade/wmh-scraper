@@ -26,9 +26,8 @@ def get_number_parking_space(x_request_id: str, driver) -> int:
     sleep(number=2)
     try:
         number_parking_space_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/main/section/div/div[1]/div/div[2]/div/div[4]/div/div/span"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[3]/div/div[4]/div/div/span"
         )
-
         if number_parking_space_data:
             log(
                 x_request_id=x_request_id,

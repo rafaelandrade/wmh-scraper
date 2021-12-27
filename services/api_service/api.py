@@ -28,6 +28,10 @@ def api_integration(
         data = requests.post(
             url=url, data=json.dumps(body), headers=headers, timeout=25
         )
+        log(
+            x_request_id=x_request_id,
+            message=f"Request finish with status: {data.status_code}",
+        )
         return data.json()
     except (
         requests.exceptions.Timeout,

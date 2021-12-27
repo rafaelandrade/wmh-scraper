@@ -21,7 +21,7 @@ def get_furniture_flag(x_request_id: str, driver) -> bool:
     sleep(number=2)
     try:
         flag_furniture_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/main/section/div/div[1]/div/div[2]/div/div[7]/div/div/span"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[3]/div/div[7]/div/div/span"
         )
         if flag_furniture_data:
             log(

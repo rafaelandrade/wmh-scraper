@@ -21,7 +21,10 @@ def create(x_request_id: str, data: dict, table_name: str) -> dict:
     token = config.get("wmh_backoffice_token", None)
     try:
         response = api_integration(
-            x_request_id=x_request_id, url=path, token=token, body=body
+            x_request_id=x_request_id,
+            url=f"{path}/v1/wmh/update-data",
+            token=token,
+            body=body,
         )
         response = dict(response)
         return response["data"]
