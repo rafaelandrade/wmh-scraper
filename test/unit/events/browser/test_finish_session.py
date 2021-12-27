@@ -1,4 +1,4 @@
-from events.browser.event_finish_session import finish_session
+from app.events.browser.event_finish_session import finish_session
 
 
 def test_finish_session():

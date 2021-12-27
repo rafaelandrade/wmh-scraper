@@ -1,4 +1,6 @@
-from scraper.quinto_andar.resident_block.number_rooms import number_of_rooms
+from app.scraper.quinto_andar.resident_block.number_rooms import (
+    number_of_rooms,
+)
 
 
 def test_number_rooms_with_2_as_number_of_rooms():

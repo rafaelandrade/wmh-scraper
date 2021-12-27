@@ -1,4 +1,4 @@
-from utils.formatting_events import formatting_events
+from app.utils import formatting_events
 
 
 def test_formatting_events():

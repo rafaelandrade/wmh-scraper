@@ -1,6 +1,6 @@
 from faker import Faker
 
-from scraper.quinto_andar.get_link_of_resident_block import (
+from app.scraper.quinto_andar.get_link_of_resident_block import (
     get_link_of_resident_block,
 )
 

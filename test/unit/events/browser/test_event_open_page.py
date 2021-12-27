@@ -1,4 +1,4 @@
-from events.browser.event_open_page import open_page
+from app.events.browser.event_open_page import open_page
 
 
 def test_open_page():

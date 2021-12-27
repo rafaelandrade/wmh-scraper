@@ -1,4 +1,4 @@
-from utils.uuid_generator import uuid_generator
+from app.utils import uuid_generator
 
 
 def test_uuid_generator_is_not_none():

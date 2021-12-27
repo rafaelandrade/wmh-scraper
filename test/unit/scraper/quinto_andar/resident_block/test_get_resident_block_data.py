@@ -1,7 +1,9 @@
 from faker import Faker
 
-from scraper.quinto_andar.resident_block.main import get_resident_block_data
-from schemas.QuintoAndarSchema import QuintoAndarSchema
+from app.scraper.quinto_andar.resident_block.main import (
+    get_resident_block_data,
+)
+from app.schemas.QuintoAndarSchema import QuintoAndarSchema
 
 fake = Faker()
 

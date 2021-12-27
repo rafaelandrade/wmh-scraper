@@ -1,4 +1,6 @@
-from events.consumer.dealing_with_empty_queue import dealing_with_empty_queue
+from app.events.consumer.dealing_with_empty_queue import (
+    dealing_with_empty_queue,
+)
 
 
 def test_dealing_with_empty_queue(mocker):

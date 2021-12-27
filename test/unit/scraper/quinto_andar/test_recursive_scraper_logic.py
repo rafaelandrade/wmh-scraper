@@ -1,6 +1,6 @@
 from faker import Faker
 
-from scraper.quinto_andar.recursive_scraper_logic import (
+from app.scraper.quinto_andar.recursive_scraper_logic import (
     recursive_scraper_logic,
 )
 

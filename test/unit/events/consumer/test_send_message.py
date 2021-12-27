@@ -1,5 +1,5 @@
 import json
-from events.consumer.send_message import send_message
+from app.events.consumer.send_message import send_message
 
 
 def test_send_message():

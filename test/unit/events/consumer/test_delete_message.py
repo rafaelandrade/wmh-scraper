@@ -1,4 +1,4 @@
-from events.consumer.delete_message import delete_message
+from app.events.consumer.delete_message import delete_message
 
 
 def test_delete_message():

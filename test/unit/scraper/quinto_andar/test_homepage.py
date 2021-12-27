@@ -1,4 +1,4 @@
-from scraper.quinto_andar.homepage import homepage
+from app.scraper import homepage
 
 
 def test_homepage(mocker):

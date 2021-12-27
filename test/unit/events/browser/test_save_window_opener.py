@@ -1,4 +1,4 @@
-from events.browser.event_save_window_opener import save_window_opener
+from app.events.browser.event_save_window_opener import save_window_opener
 
 
 def test_save_window_opener():

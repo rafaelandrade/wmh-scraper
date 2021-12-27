@@ -1,4 +1,4 @@
-from scraper.quinto_andar.resident_block.type_of_residence import (
+from app.scraper.quinto_andar.resident_block.type_of_residence import (
     get_type_residence,
 )
 

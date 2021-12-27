@@ -1,4 +1,4 @@
-from scraper.quinto_andar.resident_block.pet_residence_flag import pet_flag
+from app.scraper.quinto_andar.resident_block.pet_residence_flag import pet_flag
 
 
 def test_pet_residence_flag_with_true():

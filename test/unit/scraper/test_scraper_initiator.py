@@ -1,4 +1,4 @@
-from scraper.main import scraper_initiator
+from app.scraper.main import scraper_initiator
 
 
 def test_scraper_initiator(mocker):

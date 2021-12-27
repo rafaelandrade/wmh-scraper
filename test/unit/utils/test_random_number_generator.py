@@ -1,4 +1,4 @@
-from utils.random_number_generator import random_number
+from app.utils import random_number
 
 
 def test_random_number_generator_is_not_none_and_is_int_type():

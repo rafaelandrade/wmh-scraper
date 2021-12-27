@@ -1,4 +1,4 @@
-from scraper.quinto_andar.resident_block.resident_localization_data import (
+from app.scraper.quinto_andar.resident_block.resident_localization_data import (
     resident_localization_data,
 )
 

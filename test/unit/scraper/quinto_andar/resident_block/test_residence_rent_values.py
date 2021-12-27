@@ -1,4 +1,4 @@
-from scraper.quinto_andar.resident_block.residence_rent_values import (
+from app.scraper.quinto_andar.resident_block.residence_rent_values import (
     get_rent_values,
 )
 

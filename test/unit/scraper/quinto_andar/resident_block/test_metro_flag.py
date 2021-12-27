@@ -1,4 +1,4 @@
-from scraper.quinto_andar.resident_block.metro_flag import get_metro_flag
+from app.scraper.quinto_andar.resident_block.metro_flag import get_metro_flag
 
 
 def test_get_furniture_flag_with_true():

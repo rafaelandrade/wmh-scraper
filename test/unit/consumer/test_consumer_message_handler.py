@@ -1,4 +1,4 @@
-from consumer.consumer_message_handler import consumer_message_handler
+from app.consumer import consumer_message_handler
 
 
 def test_consumer_message_handler(mocker):

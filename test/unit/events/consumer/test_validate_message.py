@@ -1,6 +1,6 @@
 import json
 
-from events.consumer.validate_message_data import validate_message_data
+from app.events.consumer.validate_message_data import validate_message_data
 
 
 def test_validate_message():

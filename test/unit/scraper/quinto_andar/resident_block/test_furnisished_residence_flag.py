@@ -1,4 +1,4 @@
-from scraper.quinto_andar.resident_block.furnisished_residence_flag import (
+from app.scraper import (
     get_furniture_flag,
 )
 

@@ -1,4 +1,6 @@
-from scraper.quinto_andar.resident_block.residence_id import get_residence_id
+from app.scraper.quinto_andar.resident_block.residence_id import (
+    get_residence_id,
+)
 
 
 def test_number_bathrooms_with_5_as_number_of_bathrooms():

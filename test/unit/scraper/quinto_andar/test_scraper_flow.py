@@ -1,6 +1,6 @@
 from faker import Faker
 
-from scraper.quinto_andar.scraper_flow import scraper_flow
+from app.scraper.quinto_andar.scraper_flow import scraper_flow
 
 fake = Faker()
 
