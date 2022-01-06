@@ -32,7 +32,7 @@ def api_integration(
             x_request_id=x_request_id,
             message=f"Request finish with status: {data.status_code}",
         )
-        return data.json()
+        return data
     except (
         requests.exceptions.Timeout,
         requests.exceptions.ReadTimeout,

@@ -41,7 +41,12 @@ def create_residence_values(
             x_request_id=x_request_id,
             message=f"Inserted in database the follow residence values {residence_values}...",
         )
-    except Exception as exception:
+    except (
+        TimeoutError,
+        SyntaxError,
+        IndexError,
+        AttributeError,
+    ) as exception:
         return error_handler(
             x_request_id=x_request_id,
             exception=exception,

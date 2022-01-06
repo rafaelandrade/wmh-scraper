@@ -33,6 +33,5 @@ def create_residence_address(
         table_name=tableNameSchema.residence_address,
     )
 
-    address_data = dict(address_data)
-
-    return address_data.get("id", None)
+    address_data = dict(address_data) if address_data else {}
+    return address_data.get("id")

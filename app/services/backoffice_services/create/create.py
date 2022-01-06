@@ -28,7 +28,7 @@ def create(x_request_id: str, data: dict, table_name: str) -> dict:
         )
         response = dict(response)
         return response["data"]
-    except (AssertionError, AttributeError, IndexError) as exception:
+    except (AssertionError, AttributeError, IndexError, KeyError) as exception:
         return error_handler(
             x_request_id=x_request_id,
             _msg="Exception occurred in create service.",

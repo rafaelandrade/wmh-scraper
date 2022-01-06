@@ -65,7 +65,7 @@ def creation_residence_data(
             x_request_id=x_request_id,
             residence_id=residence_id,
         )
-    except Exception as exception:
+    except (SyntaxError, AttributeError, AssertionError) as exception:
         return error_handler(
             exception=exception,
             _msg="Exception occurred in create_residence_flow",
