@@ -1,4 +1,4 @@
-from app.consumer import consumer_message_handler
+from app.consumer.consumer_message_handler import consumer_message_handler
 
 
 def test_consumer_message_handler(mocker):
@@ -7,11 +7,11 @@ def test_consumer_message_handler(mocker):
         validate_message_data and executor
     """
     mocker_validate_message = mocker.patch(
-        "consumer.consumer_message_handler.validate_message_data",
+        "app.consumer.consumer_message_handler.validate_message_data",
         return_values={},
     )
     mocker_executor = mocker.patch(
-        "consumer.consumer_message_handler.executor", return_values={}
+        "app.consumer.consumer_message_handler.executor", return_values={}
     )
 
     assert (

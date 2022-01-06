@@ -35,7 +35,7 @@ def test_send_message_error(mocker):
         of some error occurred
     """
     mocker_error_handler = mocker.patch(
-        "events.consumer.send_message.error_handler", return_value=None
+        "app.events.consumer.send_message.error_handler", return_value=None
     )
 
     class Queue:

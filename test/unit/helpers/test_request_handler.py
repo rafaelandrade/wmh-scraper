@@ -3,7 +3,7 @@ import json
 from app.helpers.request_identificator_handler.request_handler import (
     request_handler,
 )
-from app.utils import uuid_generator
+from app.utils.uuid_generator import uuid_generator
 
 
 def test_request_handler():
@@ -24,7 +24,7 @@ def test_request_handler_without_request_in_object(mocker):
     """
     uuid_test = "AAAAA"
     mocker_uuid_generator = mocker.patch(
-        "helpers.request_identificator_handler.request_handler.uuid_generator",
+        "app.helpers.request_identificator_handler.request_handler.uuid_generator",
         return_value=uuid_test,
     )
     message = {"potato": 1}

@@ -34,6 +34,6 @@ def resident_localization_data(x_request_id: str, driver) -> list:
             )
 
             localization_data = localization_data.text
-            return localization_data.split(",")
+            return localization_data.split(",") if localization_data else None
     except (AttributeError, NoSuchElementException) as exception:
         error_handler(x_request_id=x_request_id, exception=exception)

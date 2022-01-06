@@ -11,17 +11,18 @@ def test_recursive_scraper_logic_with_time_lower_then_timeout(mocker):
     """Should return None and is testing the flow of modules"""
     mocker.patch("time.time", return_value=12345)
     mocker.patch(
-        "scraper.quinto_andar.recursive_scraper_logic", return_value=None
+        "app.scraper.quinto_andar.recursive_scraper_logic", return_value=None
     )
     mocker.patch(
-        "scraper.quinto_andar.recursive_scraper_logic.get_link_of_resident_block",
+        "app.scraper.quinto_andar.recursive_scraper_logic.get_link_of_resident_block",
         return_value=None,
     )
     mocker.patch(
-        "scraper.quinto_andar.recursive_scraper_logic.sleep", return_value=None
+        "app.scraper.quinto_andar.recursive_scraper_logic.sleep",
+        return_value=None,
     )
     mocker.patch(
-        "scraper.quinto_andar.recursive_scraper_logic.recursive_column_row_logic",
+        "app.scraper.quinto_andar.recursive_scraper_logic.recursive_column_row_logic",
         return_value=[1, 2],
     )
     timeout_start = 13

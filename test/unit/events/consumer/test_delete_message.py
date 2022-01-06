@@ -22,7 +22,7 @@ def test_delete_message_error(mocker):
         in case of some error
     """
     mocker_error_handler = mocker.patch(
-        "events.consumer.delete_message.error_handler", return_value=None
+        "app.events.consumer.delete_message.error_handler", return_value=None
     )
     delete_message(x_request_id="", message={})
 

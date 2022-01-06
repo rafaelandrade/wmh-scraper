@@ -35,6 +35,6 @@ def pet_flag(x_request_id: str, driver) -> bool:
                 message=f"Pet flag informatio is {pet_flag_text}",
             )
 
-            return bool("Não" in pet_flag_text or "Nao" in pet_flag_text)
+            return not bool("Não" in pet_flag_text or "Nao" in pet_flag_text)
     except (AttributeError, NoSuchElementException) as exception:
         error_handler(x_request_id=x_request_id, exception=exception)

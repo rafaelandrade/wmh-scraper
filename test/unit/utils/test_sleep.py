@@ -1,4 +1,4 @@
-from app.utils import sleep
+from app.utils.sleep import sleep
 
 
 def test_sleep_function_should_return_none():

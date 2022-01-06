@@ -1,4 +1,4 @@
-from app.scraper import (
+from app.scraper.quinto_andar.resident_block.number_bathrooms import (
     get_number_bathrooms,
 )
 

@@ -5,7 +5,9 @@ def test_scraper_initiator(mocker):
     """
     Should called quinto andar initiator
     """
-    mocker_homepage = mocker.patch("scraper.main.homepage", return_value=None)
+    mocker_homepage = mocker.patch(
+        "app.scraper.main.homepage", return_value=None
+    )
 
     assert (
         scraper_initiator(
