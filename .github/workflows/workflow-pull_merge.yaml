@@ -21,10 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           pip3 install -r requirements.txt
       - name: Generate coverage report
-        run: |
-          pip install pytest
-          pip install pytest-cov
-          pytest --cov=./ --cov-report=xml
+        run:  scripts/run_tests.sh
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:

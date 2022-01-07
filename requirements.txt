@@ -14,3 +14,5 @@ faker==8.10.3
 boto3==1.15.0
 coralogix_logger==2.0.4
 requests-mock==1.9.3
+coverage==5.5
+coverage-badge==1.0.1
