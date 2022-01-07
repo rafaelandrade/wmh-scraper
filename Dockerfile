@@ -1,7 +1,7 @@
 FROM --platform=linux/amd64  python:3.9
 
 WORKDIR /code
-EXPOSE 5000
+EXPOSE 7000
 
 RUN pip install --upgrade pip
 
