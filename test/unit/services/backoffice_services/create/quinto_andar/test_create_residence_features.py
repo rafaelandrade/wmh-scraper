@@ -5,7 +5,7 @@ from app.services.backoffice_services.create.quinto_andar.create_residence_featu
 
 def test_create_residence_features(mocker):
     """
-    should return 2 of number of times that
+    Should return 2 of number of times that
         create going to be called.
     """
     features = {"flag_pet": True, "flag_furniture": False}

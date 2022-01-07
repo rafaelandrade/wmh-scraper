@@ -35,7 +35,6 @@ def test_create_residence_none(mocker):
         Expect return None
             in case of some error happens.
     """
-
     quinto_andar_schema = QuintoAndarSchema()
 
     mocker_create = mocker.patch(

@@ -7,7 +7,6 @@ def test_dealing_with_empty_queue(mocker):
     """
     Function send_message should be called
     """
-
     mocker_send_message = mocker.patch(
         "app.events.consumer.dealing_with_empty_queue.send_message",
         return_value=None,
