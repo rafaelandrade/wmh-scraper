@@ -1,4 +1,6 @@
-from events.consumer.dealing_with_empty_queue import dealing_with_empty_queue
+from app.events.consumer.dealing_with_empty_queue import (
+    dealing_with_empty_queue,
+)
 
 
 def test_dealing_with_empty_queue(mocker):
@@ -7,7 +9,7 @@ def test_dealing_with_empty_queue(mocker):
     """
 
     mocker_send_message = mocker.patch(
-        "events.consumer.dealing_with_empty_queue.send_message",
+        "app.events.consumer.dealing_with_empty_queue.send_message",
         return_value=None,
     )
 

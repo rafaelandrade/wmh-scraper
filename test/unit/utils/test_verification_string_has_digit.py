@@ -1,6 +1,8 @@
 from faker import Faker
 
-from utils.veritification_string_has_digit import verification_string_has_digit
+from app.utils.veritification_string_has_digit import (
+    verification_string_has_digit,
+)
 
 faker = Faker()
 

@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    container_name: 'wmh_scraper'
+    restart: always
+    volumes:
+      - .:/code
+    command: "python3 run.py"

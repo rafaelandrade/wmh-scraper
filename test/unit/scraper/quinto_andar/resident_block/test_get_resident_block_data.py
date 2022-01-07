@@ -1,7 +1,9 @@
 from faker import Faker
 
-from scraper.quinto_andar.resident_block.main import get_resident_block_data
-from schemas.QuintoAndarSchema import QuintoAndarSchema
+from app.scraper.quinto_andar.resident_block.main import (
+    get_resident_block_data,
+)
+from app.schemas.QuintoAndarSchema import QuintoAndarSchema
 
 fake = Faker()
 
@@ -16,34 +18,35 @@ def test_get_resident_block_data(mocker):
     quinto_andar_schema = QuintoAndarSchema()
 
     mock_localization_data = mocker.patch(
-        "scraper.quinto_andar.resident_block.main.resident_localization_data",
+        "app.scraper.quinto_andar.resident_block.main.resident_localization_data",
         return_value=["Rua Potatoes", "Potatoes", "São Potatoes"],
     )
     mock_number_rooms = mocker.patch(
-        "scraper.quinto_andar.resident_block.main.number_of_rooms",
+        "app.scraper.quinto_andar.resident_block.main.number_of_rooms",
         return_value=2,
     )
     mock_number_bathroom = mocker.patch(
-        "scraper.quinto_andar.resident_block.main.get_number_bathrooms",
+        "app.scraper.quinto_andar.resident_block.main.get_number_bathrooms",
         return_value=1,
     )
     mock_get_number_parking_space = mocker.patch(
-        "scraper.quinto_andar.resident_block.main.get_number_parking_space",
+        "app.scraper.quinto_andar.resident_block.main.get_number_parking_space",
         return_value=0,
     )
     mock_pet_flag = mocker.patch(
-        "scraper.quinto_andar.resident_block.main.pet_flag", return_value=True
+        "app.scraper.quinto_andar.resident_block.main.pet_flag",
+        return_value=True,
     )
     mock_get_furniture_flag = mocker.patch(
-        "scraper.quinto_andar.resident_block.main.get_furniture_flag",
+        "app.scraper.quinto_andar.resident_block.main.get_furniture_flag",
         return_value=False,
     )
     mock_residence_size = mocker.patch(
-        "scraper.quinto_andar.resident_block.main.residence_size",
+        "app.scraper.quinto_andar.resident_block.main.residence_size",
         return_value=123,
     )
     mock_get_type_residence = mocker.patch(
-        "scraper.quinto_andar.resident_block.main.get_type_residence",
+        "app.scraper.quinto_andar.resident_block.main.get_type_residence",
         return_value="house",
     )
     mock_rent_values = {
@@ -55,11 +58,15 @@ def test_get_resident_block_data(mocker):
         "total_rent_value": 22222,
     }
     mock_get_rent_values = mocker.patch(
-        "scraper.quinto_andar.resident_block.main.get_rent_values",
+        "app.scraper.quinto_andar.resident_block.main.get_rent_values",
         return_value=mock_rent_values,
     )
+    mock_get_metro_flag = mocker.patch(
+        "app.scraper.quinto_andar.resident_block.main.get_metro_flag",
+        return_value=True,
+    )
     mock_get_residence_id = mocker.patch(
-        "scraper.quinto_andar.resident_block.main.get_residence_id",
+        "app.scraper.quinto_andar.resident_block.main.get_residence_id",
         return_value=22,
     )
 
@@ -79,3 +86,4 @@ def test_get_resident_block_data(mocker):
     assert mock_get_furniture_flag.call_count == 1
     assert mock_get_rent_values.call_count == 1
     assert mock_get_residence_id.call_count == 1
+    assert mock_get_metro_flag.call_count == 1

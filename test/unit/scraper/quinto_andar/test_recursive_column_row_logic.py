@@ -1,6 +1,6 @@
 from faker import Faker
 
-from scraper.quinto_andar.recursive_column_row_logic import (
+from app.scraper.quinto_andar.recursive_column_row_logic import (
     recursive_column_row_logic,
 )
 
@@ -38,7 +38,7 @@ def test_recursive_column_row_logic_with_div_number_row_plus_1(mocker):
     next row of residences.
     """
     mocker.patch(
-        "scraper.quinto_andar.recursive_column_row_logic.scroll_quinto_andar_page",
+        "app.scraper.quinto_andar.recursive_column_row_logic.scroll_quinto_andar_page",
         return_value=None,
     )
     div_number_column = fake.unique.random_int()

@@ -1,4 +1,4 @@
-from events.consumer.receive_messages import receive_messages
+from app.events.consumer.receive_messages import receive_messages
 
 
 def test_receive_messages():

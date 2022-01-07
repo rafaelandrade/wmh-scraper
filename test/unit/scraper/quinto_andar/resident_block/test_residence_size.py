@@ -1,4 +1,6 @@
-from scraper.quinto_andar.resident_block.residence_size import residence_size
+from app.scraper.quinto_andar.resident_block.residence_size import (
+    residence_size,
+)
 
 
 def test_residence_size_with_93_as_response():

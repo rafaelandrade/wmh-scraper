@@ -1,4 +1,4 @@
-from scraper.quinto_andar.resident_block.number_parking_space import (
+from app.scraper.quinto_andar.resident_block.number_parking_space import (
     get_number_parking_space,
 )
 

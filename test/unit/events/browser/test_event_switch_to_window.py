@@ -1,4 +1,4 @@
-from events.browser.event_switch_to_window import (
+from app.events.browser.event_switch_to_window import (
     event_switch_window,
     event_switch_right_window,
 )
