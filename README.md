@@ -18,7 +18,15 @@
 
 <h2> 👉 Quick start </h2>
 
-This is a Python project focus on get public data from internet, to be more specific
+This is a Python project focus on get public data from internet, using scraper as a main technologies implemented.
+
+---
+<h2> 🔌 Technologies </h2>
+
+- Docker
+- [AWS SQS](https://docs.aws.amazon.com/sqs/)
+- [Sentry](https://docs.sentry.io/)
+- [Coralogix](https://coralogix.com/integrations/coralogix-python-integration/)
 
 ---
 <h2> ⚡️ Quick start </h2>
@@ -57,6 +65,11 @@ If you want to say thank you or/and support active development of WMH.
 <a href="https://www.buymeacoffee.com/rafaelasndrade" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A pizza" style="height: auto !important;width: auto !important;" ></a>
 
 ---
+<h2> Contributing </h2>
+
+Would you like to contribute to this project? [CONTRIBUTING.md](CONTRIBUTING.md) has all the details on how to do that.
+
+---
 <h2> ⚠️ License </h2>
 
-WMH-Scraper is free and open-source software licensed under the [Apache 2.0 License](https://github.com/create-go-app/cli/blob/master/LICENSE).
+WMH-Scraper is licensed under the terms of the GPL Open Source license and is available for free.
