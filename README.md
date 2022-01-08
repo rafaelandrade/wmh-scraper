@@ -58,7 +58,7 @@ $ docker-compose down
 
 If you want to say thank you or/and support active development of WMH.
 
-- Add a GitHub Start to the project.
+- Add a GitHub 🌟 to the project.
 - Tweet and comment about project.
 - Give was a coffee, if you like too.
 
