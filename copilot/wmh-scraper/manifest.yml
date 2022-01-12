@@ -1,0 +1,51 @@
+# The manifest for the "wmh-scraper" service.
+# Read the full specification for the "Backend Service" type at:
+#  https://aws.github.io/copilot-cli/docs/manifest/backend-service/
+
+# Your service name will be used in naming your resources like log groups, ECS services, etc.
+name: wmh-scraper
+type: Backend Service
+
+# Your service is reachable at "http://wmh-scraper.${COPILOT_SERVICE_DISCOVERY_ENDPOINT}:7000" but is not public.
+
+# Configuration for your containers and service.
+image:
+  # Docker build arguments. For additional overrides: https://aws.github.io/copilot-cli/docs/manifest/backend-service/#image-build
+  build: Dockerfile
+  # Port exposed through your container to route traffic to it.
+  port: 7000
+  healthcheck:
+    command: [ "CMD", "curl --fail -s http://localhost:7000/ || exit 1" ]
+    interval: 10s
+    retries: 2
+    timeout: 5s
+    start_period: 0s
+
+cpu: 256       # Number of CPU units for the task.
+memory: 512    # Amount of memory in MiB used by the task.
+platform: linux/amd64     # See https://aws.github.io/copilot-cli/docs/manifest/backend-service/#platform
+count: 1       # Number of tasks that should be running in your service.
+exec: true     # Enable running commands in your container.
+
+# Optional fields for more advanced use-cases.
+#
+variables:
+  LOG_LEVEL: info
+
+# You can override any of the values defined above by environment.
+environments:
+  production:
+    count: 1
+    cpu: 256
+    memory: 512
+  variables:
+    environment: production
+  secrets:
+    URL_SENTRY: /production/wmh-scraper/URL_SENTRY
+    CORALOGIX_PRIVATE_KEY: /production/wmh-scraper/CORALOGIX_PRIVATE_KEY
+    AWS_QUEUE_SCRAPER_DEFAULT: /production/wmh-scraper/AWS_QUEUE_SCRAPER_DEFAULT
+    AWS_SECRET_REGION_NAME: /production/wmh-scraper/AWS_SECRET_REGION_NAME
+    AWS_ACCESS_KEY_ID: /production/wmh-scraper/AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: /production/wmh-scraper/AWS_SECRET_ACCESS_KEY
+    PRODUCTION_BACKOFFICE_ENDPOINT: /production/wmh-scraper/PRODUCTION_BACKOFFICE_ENDPOINT
+    PRODUCTION_BACKOFFICE_TOKEN: /production/wmh-scraper/PRODUCTION_BACKOFFICE_ENDPOINT
