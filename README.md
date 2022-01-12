@@ -29,7 +29,7 @@ This is a Python project focus on get public data from internet, using scraper a
 - [Coralogix](https://coralogix.com/integrations/coralogix-python-integration/)
 
 ---
-<h2> ⚡️ Quick start </h2>
+<h2> ⚡️ First steps </h2>
 
 The project WMH-Scraper is a Python program, and for the logic needs the [selenium](https://selenium-python.readthedocs.io/) 
 library, and a navigator driver in these case is used [Google Chrome WebDriver](https://chromedriver.chromium.org/downloads). 
@@ -53,6 +53,19 @@ $ docker-compose down
 
 ```
 ----
+
+## 🧚 Executing Tests
+
+To execute the test is simple, have to options:
+
+- Run `pytest` on terminal. Only remember to be in the root of the project.
+- Or execute the follow code on terminal:
+
+```shell 
+./scripts/run_tests.sh
+```
+
+---
 
 <h2> 🍕 Project assistance - Buy me a coffe </h2>
 
