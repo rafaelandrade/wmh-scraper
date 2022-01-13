@@ -15,7 +15,7 @@ image:
   # Port exposed through your container to route traffic to it.
   port: 7000
   healthcheck:
-    command: [ "CMD-SHELL", "curl --fail -s http://localhost:7000/ || exit 1" ]
+    command: [ "CMD-SHELL", "curl -f http://localhost:7000 || exit 1" ]
     interval: 10s
     retries: 2
     timeout: 5s

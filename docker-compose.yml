@@ -1,16 +1,11 @@
 version: '3'
 
 services:
-  app:
-    build: .
-    container_name: 'wmh_scraper'
-    restart: always
-    healthcheck:
-      test: curl --fail -s http://localhost:7000/ || exit 1
-      interval: 10s
-      timeout: 5s
-      retries: 2
-      start_period: 0s
+  wmh-scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: 'scraper'
     volumes:
       - .:/code
     command: "python3 run.py"
