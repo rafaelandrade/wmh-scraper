@@ -31,9 +31,9 @@ def main(driver: any, queue: any) -> None:
             if len(messages) == 0:
                 send_log(
                     x_request_id="",
-                    message="QUEUE with 0 messages, going to send default event in 15 minutes...",
+                    message="QUEUE with 0 messages, going to send default event in 30 minutes...",
                 )
-                sleep(number=900)
+                sleep(number=1800)
                 dealing_with_empty_queue(queue=queue)
             else:
                 for message in messages:
