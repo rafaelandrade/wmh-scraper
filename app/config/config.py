@@ -1,12 +1,12 @@
-from dotenv import load_dotenv
 from os import environ
+from dotenv import load_dotenv
+
 
 load_dotenv()
 
-ENVIRONMENT = environ.get("environment") or "development"
 config = {}
 
-if ENVIRONMENT == "development":
+if environ.get("WMH-SCRAPER-ENV") == "development":
     # GENERAL #
     config["url_sentry"] = environ.get("URL_SENTRY")
     config["coralogix_secret_key"] = environ.get("CORALOGIX_PRIVATE_KEY")
@@ -28,7 +28,7 @@ if ENVIRONMENT == "development":
     )
 
 
-if ENVIRONMENT == "production":
+if environ.get("WMH-SCRAPER-ENV") == "production":
     # GENERAL #
     config["url_sentry"] = environ.get("URL_SENTRY")
     config["coralogix_secret_key"] = environ.get("CORALOGIX_PRIVATE_KEY")

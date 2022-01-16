@@ -31,6 +31,7 @@ exec: true     # Enable running commands in your container.
 #
 variables:
   LOG_LEVEL: info
+  PORT: 8080
 
 # You can override any of the values defined above by environment.
 environments:
@@ -38,8 +39,9 @@ environments:
     count: 1
     cpu: 256
     memory: 512
+  variables:
+    WMH-SCRAPER-ENV: production
   secrets:
-    environment: production
     URL_SENTRY: /production/wmh-scraper/URL_SENTRY
     CORALOGIX_PRIVATE_KEY: /production/wmh-scraper/CORALOGIX_PRIVATE_KEY
     AWS_QUEUE_SCRAPER_DEFAULT: /production/wmh-scraper/AWS_QUEUE_SCRAPER_DEFAULT
