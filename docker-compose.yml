@@ -1,10 +1,11 @@
 version: '3'
 
 services:
-  app:
-    build: .
-    container_name: 'wmh_scraper'
-    restart: always
+  wmh-scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: 'scraper'
     volumes:
       - .:/code
     command: "python3 run.py"
