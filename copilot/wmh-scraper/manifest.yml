@@ -38,9 +38,8 @@ environments:
     count: 1
     cpu: 256
     memory: 512
-  variables:
-    environment: production
   secrets:
+    environment: production
     URL_SENTRY: /production/wmh-scraper/URL_SENTRY
     CORALOGIX_PRIVATE_KEY: /production/wmh-scraper/CORALOGIX_PRIVATE_KEY
     AWS_QUEUE_SCRAPER_DEFAULT: /production/wmh-scraper/AWS_QUEUE_SCRAPER_DEFAULT
@@ -48,4 +47,4 @@ environments:
     AWS_ACCESS_KEY_ID: /production/wmh-scraper/AWS_ACCESS_KEY_ID
     AWS_SECRET_ACCESS_KEY: /production/wmh-scraper/AWS_SECRET_ACCESS_KEY
     PRODUCTION_BACKOFFICE_ENDPOINT: /production/wmh-scraper/PRODUCTION_BACKOFFICE_ENDPOINT
-    PRODUCTION_BACKOFFICE_TOKEN: /production/wmh-scraper/PRODUCTION_BACKOFFICE_ENDPOINT
+    PRODUCTION_BACKOFFICE_TOKEN: /production/wmh-scraper/PRODUCTION_BACKOFFICE_TOKEN

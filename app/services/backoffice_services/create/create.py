@@ -17,12 +17,12 @@ def create(x_request_id: str, data: dict, table_name: str) -> dict:
         int
     """
     body = {"data": data, "tableName": table_name}
-    path = config.get("wmh_backoffice_endpoint", None)
+    # path = config.get("wmh_backoffice_endpoint", None)
     token = config.get("wmh_backoffice_token", None)
     try:
         response = api_integration(
             x_request_id=x_request_id,
-            url=f"{path}/v1/wmh/update-data",
+            url="https://wmhbackoffice-prod.onrender.com/v1/wmh/update-data",
             token=token,
             body=body,
         )
