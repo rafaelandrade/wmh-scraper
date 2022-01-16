@@ -1,0 +1,38 @@
+on:
+  push:
+    branches: [ master ]
+
+name: AWS Copilot CI Production
+jobs:
+  aws_copilot_ci:
+    name: AWS Copilot CI Production
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install AWS Copilot
+        run: |
+          curl -Lo copilot_cli https://github.com/aws/copilot-cli/releases/latest/download/copilot-linux
+          chmod +x copilot_cli
+          sudo mv copilot_cli /usr/local/bin/copilot
+          copilot --help
+
+      - uses: docker-practice/actions-setup-docker@master
+
+      - name: Configure AWS credentials - Production account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_COPILOT }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_COPILOT }}
+          aws-region: us-east-2
+
+      - name: Deploy copilot service to production environment
+        run: |
+          aws --profile default configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws --profile default configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws --profile default configure set region $AWS_REGION
+
+          copilot svc deploy --name wmh-scraper --env production
