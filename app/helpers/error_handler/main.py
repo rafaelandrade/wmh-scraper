@@ -4,7 +4,7 @@ from app.config.config import config
 from app.helpers.logger.console_logger import send_err
 
 sentry_sdk.init(
-    config.get("url_sentry"), environment=config.get("environment")
+    config.get("url_sentry"), environment=config.get("WMH-SCRAPER-ENV")
 )
 
 
