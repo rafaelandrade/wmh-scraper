@@ -35,4 +35,6 @@ jobs:
           aws --profile default configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws --profile default configure set region $AWS_REGION
 
+          copilot app init wmh-app
+          copilot env init --name production --profile default --app wmh-app --default-config --prod
           copilot svc deploy --name wmh-scraper --env production

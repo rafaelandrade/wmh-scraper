@@ -28,7 +28,7 @@ def create(x_request_id: str, data: dict, table_name: str) -> dict:
     try:
         response = api_integration(
             x_request_id=x_request_id,
-            url="https://wmhbackoffice-prod.onrender.com/v1/wmh/update-data",
+            url=f"{path}/v1/wmh/update-data",
             token=token,
             body=body,
         )
