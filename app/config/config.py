@@ -6,6 +6,8 @@ load_dotenv()
 
 config = {}
 
+config["environment"] = environ.get("WMH-SCRAPER-ENV")
+
 if environ.get("WMH-SCRAPER-ENV") == "development":
     # GENERAL #
     config["url_sentry"] = environ.get("URL_SENTRY")
