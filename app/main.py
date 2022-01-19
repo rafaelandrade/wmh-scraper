@@ -33,7 +33,7 @@ def start(thread_number: int) -> None:
     queue = queues.get(f"{thread_number}")
     queue = sqs.get_queue_by_name(QueueName=queue)
     send_log(
-        message=f"Initiation of WMH-Scraper with environment {config.get('WMH-SCRAPER-ENV')}...",
+        message=f"Initiation of WMH-Scraper with environment {config.get('environment')}...",
         x_request_id="",
     )
     main(driver=driver, queue=queue)
