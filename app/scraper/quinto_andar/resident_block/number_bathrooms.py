@@ -46,5 +46,6 @@ def get_number_bathrooms(x_request_id: str, driver) -> int:
                 )
                 else 0
             )
-    except (AttributeError, NoSuchElementException) as exception:
+    except (AttributeError, NoSuchElementException, Exception) as exception:
+        send_log(message=f"Error: {exception}", x_request_id=x_request_id)
         error_handler(x_request_id=x_request_id, exception=exception)
