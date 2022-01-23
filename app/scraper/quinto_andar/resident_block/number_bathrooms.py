@@ -28,7 +28,7 @@ def get_number_bathrooms(x_request_id: str, driver) -> int:
     sleep(number=2)
     try:
         number_bathrooms_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/main/section/div/div[1]/div/div[3]/div/div[3]/div/div/span"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[3]/div/div[3]/div/div/p"
         )
         if number_bathrooms_data:
             send_log(
@@ -47,5 +47,4 @@ def get_number_bathrooms(x_request_id: str, driver) -> int:
                 else 0
             )
     except (AttributeError, NoSuchElementException, Exception) as exception:
-        send_log(message=f"Error: {exception}", x_request_id=x_request_id)
         error_handler(x_request_id=x_request_id, exception=exception)

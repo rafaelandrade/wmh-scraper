@@ -28,7 +28,7 @@ def residence_size(x_request_id: str, driver) -> int:
     sleep(number=2)
     try:
         size_residence_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/main/section/div/div[1]/div/div[3]/div/div[1]/div/div/span"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[3]/div/div[1]/div/div/p"
         )
         if size_residence_data:
             send_log(
