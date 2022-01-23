@@ -72,10 +72,12 @@ def recursive_scraper_logic(
             main_window = save_window_opener(
                 x_request_id=x_request_id, driver=driver
             )
+            sleep(2)
             open_new_tab(x_request_id=x_request_id, link=link)
+            sleep(3)
             event_switch_right_window(x_request_id=x_request_id, driver=driver)
             event_switch_to_tab_window(main_window=main_window, driver=driver)
-            sleep(8)
+            sleep(3)
             send_log(
                 x_request_id=x_request_id,
                 message="Initiation of collection of data...",
