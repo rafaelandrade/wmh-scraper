@@ -48,4 +48,4 @@ def number_of_rooms(x_request_id: str, driver) -> int:
                 else 0
             )
     except (AttributeError, NoSuchElementException) as exception:
-        error_handler(x_request_id=x_request_id, exception=exception)
+        return error_handler(x_request_id=x_request_id, exception=exception)

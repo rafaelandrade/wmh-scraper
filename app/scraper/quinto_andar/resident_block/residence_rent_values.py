@@ -61,4 +61,4 @@ def get_rent_values(x_request_id: str, driver) -> dict:
 
                 return rent_values_dict
     except (AttributeError, NoSuchElementException) as exception:
-        error_handler(x_request_id=x_request_id, exception=exception)
+        return error_handler(x_request_id=x_request_id, exception=exception)
