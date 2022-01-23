@@ -31,7 +31,7 @@ def get_rent_values(x_request_id: str, driver) -> dict:
         if rent_values_data:
             send_log(
                 x_request_id=x_request_id,
-                message=f"Found the values... {rent_values_data}",
+                message=f"Found the values... {rent_values_data.text}",
             )
 
             rent_values_dict = {

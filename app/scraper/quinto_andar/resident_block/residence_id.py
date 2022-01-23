@@ -33,7 +33,7 @@ def get_residence_id(x_request_id: str, driver: any) -> int:
         if residence_id:
             send_log(
                 x_request_id=x_request_id,
-                message=f"Found id of residence... {residence_id}",
+                message=f"Found id of residence... {residence_id.text}",
             )
 
             residence_id_text = residence_id.text

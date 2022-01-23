@@ -33,7 +33,7 @@ def get_number_bathrooms(x_request_id: str, driver) -> int:
         if number_bathrooms_data:
             send_log(
                 x_request_id=x_request_id,
-                message=f"Found information about the residence {number_bathrooms_data}...",
+                message=f"Found information about the residence {number_bathrooms_data.text}...",
             )
 
             number_bathrooms = number_bathrooms_data.text

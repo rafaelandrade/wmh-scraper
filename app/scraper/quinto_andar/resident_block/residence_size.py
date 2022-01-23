@@ -33,7 +33,7 @@ def residence_size(x_request_id: str, driver) -> int:
         if size_residence_data:
             send_log(
                 x_request_id=x_request_id,
-                message=f"Found information about bedrooms {size_residence_data}...",
+                message=f"Found information about bedrooms {size_residence_data.text}...",
             )
 
             size_residence = size_residence_data.text

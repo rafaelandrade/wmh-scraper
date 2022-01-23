@@ -28,7 +28,7 @@ def get_type_residence(x_request_id: str, driver) -> str:
         if type_residence_data:
             send_log(
                 x_request_id=x_request_id,
-                message=f"Found the type of residence {type_residence_data}...",
+                message=f"Found the type of residence {type_residence_data.text}...",
             )
 
             type_residence = type_residence_data.text
