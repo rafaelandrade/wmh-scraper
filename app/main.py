@@ -29,7 +29,7 @@ def start(thread_number: int) -> None:
         None
     """
     options = creation_of_gc_instance()
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(options=options, executable_path="/chromedriver")
     queue = queues.get(f"{thread_number}")
     queue = sqs.get_queue_by_name(QueueName=queue)
     send_log(
