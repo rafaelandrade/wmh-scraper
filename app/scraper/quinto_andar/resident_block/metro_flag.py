@@ -25,7 +25,7 @@ def get_metro_flag(x_request_id: str, driver) -> bool:
         if metro_flag_data:
             send_log(
                 x_request_id=x_request_id,
-                message="Found information about subway...",
+                message=f"Found information about subway {metro_flag_data}...",
             )
 
             metro_flag_text = metro_flag_data.text

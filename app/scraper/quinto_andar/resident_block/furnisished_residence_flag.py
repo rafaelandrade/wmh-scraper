@@ -28,7 +28,8 @@ def get_furniture_flag(x_request_id: str, driver) -> bool:
         if flag_furniture_data:
             send_log(
                 x_request_id=x_request_id,
-                message="Found information about furniture in the residence...",
+                message=f"Found information about furniture in "
+                f"the residence {flag_furniture_data}...",
             )
             flag_furniture = flag_furniture_data.text
             flag_furniture = flag_furniture.lower()

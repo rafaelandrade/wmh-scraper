@@ -33,7 +33,7 @@ def get_number_parking_space(x_request_id: str, driver) -> int:
         if number_parking_space_data:
             send_log(
                 x_request_id=x_request_id,
-                message="Found information about parking space...",
+                message=f"Found information about parking space {number_parking_space_data}...",
             )
 
             number_parking_space = number_parking_space_data.text

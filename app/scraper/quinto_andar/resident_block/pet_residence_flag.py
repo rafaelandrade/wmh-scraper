@@ -25,7 +25,7 @@ def pet_flag(x_request_id: str, driver) -> bool:
         if pet_flag_data:
             send_log(
                 x_request_id=x_request_id,
-                message="Found information about pet flag...",
+                message=f"Found information about pet flag {pet_flag_data}...",
             )
 
             pet_flag_text = pet_flag_data.text
