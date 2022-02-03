@@ -46,6 +46,16 @@ def start(thread_number: int) -> None:
         message=f"ENDPOINT {config.get('wmh_backoffice_endpoint')}",
         x_request_id="",
     )
+
+    send_log(
+        message=f"SENTRY {config.get('url_sentry')}",
+        x_request_id="",
+    )
+
+    send_log(
+        message=f"AWS REGION {config.get('aws_region_name')}",
+        x_request_id="",
+    )
     main(driver=driver, queue=queue)
 
 
