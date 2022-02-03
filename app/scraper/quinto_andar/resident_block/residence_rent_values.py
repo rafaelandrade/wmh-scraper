@@ -29,7 +29,10 @@ def get_rent_values(x_request_id: str, driver) -> dict:
         )
 
         if rent_values_data:
-            send_log(x_request_id=x_request_id, message="Found the values...")
+            send_log(
+                x_request_id=x_request_id,
+                message=f"Found the values... {rent_values_data.text}",
+            )
 
             rent_values_dict = {
                 "rent_without_taxes": int,
@@ -58,4 +61,4 @@ def get_rent_values(x_request_id: str, driver) -> dict:
 
                 return rent_values_dict
     except (AttributeError, NoSuchElementException) as exception:
-        error_handler(x_request_id=x_request_id, exception=exception)
+        return error_handler(x_request_id=x_request_id, exception=exception)

@@ -20,12 +20,12 @@ def get_metro_flag(x_request_id: str, driver) -> bool:
     sleep(number=2)
     try:
         metro_flag_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/main/section/div/div[1]/div/div[3]/div/div[8]/div/div/span"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[3]/div/div[8]/div/div/p"
         )
         if metro_flag_data:
             send_log(
                 x_request_id=x_request_id,
-                message="Found information about subway...",
+                message=f"Found information about subway {metro_flag_data.text}...",
             )
 
             metro_flag_text = metro_flag_data.text

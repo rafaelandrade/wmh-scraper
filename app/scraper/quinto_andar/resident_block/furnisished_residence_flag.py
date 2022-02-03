@@ -23,15 +23,16 @@ def get_furniture_flag(x_request_id: str, driver) -> bool:
     sleep(number=2)
     try:
         flag_furniture_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/main/section/div/div[1]/div/div[3]/div/div[7]/div/div/span"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[3]/div/div[7]/div/div/p"
         )
         if flag_furniture_data:
             send_log(
                 x_request_id=x_request_id,
-                message="Found information about furniture in the residence...",
+                message=f"Found information about furniture in "
+                f"the residence {flag_furniture_data.text}...",
             )
             flag_furniture = flag_furniture_data.text
             flag_furniture = flag_furniture.lower()
             return bool("sem" not in flag_furniture)
     except (AttributeError, NoSuchElementException) as exception:
-        error_handler(x_request_id=x_request_id, exception=exception)
+        return error_handler(x_request_id=x_request_id, exception=exception)

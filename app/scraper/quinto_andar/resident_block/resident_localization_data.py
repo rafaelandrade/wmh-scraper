@@ -30,7 +30,7 @@ def resident_localization_data(x_request_id: str, driver) -> list:
         if localization_data:
             send_log(
                 x_request_id=x_request_id,
-                message="Found information about address...",
+                message=f"Found information about address... {localization_data.text}",
             )
 
             localization_data = localization_data.text

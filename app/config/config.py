@@ -1,12 +1,13 @@
 from os import environ
 from dotenv import load_dotenv
 
-
 load_dotenv()
 
 config = {}
 
 if environ.get("WMH-SCRAPER-ENV") == "development":
+    config["environment"] = environ.get("WMH-SCRAPER-ENV")
+
     # GENERAL #
     config["url_sentry"] = environ.get("URL_SENTRY")
     config["coralogix_secret_key"] = environ.get("CORALOGIX_PRIVATE_KEY")
@@ -27,8 +28,9 @@ if environ.get("WMH-SCRAPER-ENV") == "development":
         "DEVELOPMENT_BACKOFFICE_TOKEN"
     )
 
-
 if environ.get("WMH-SCRAPER-ENV") == "production":
+    config["environment"] = environ.get("WMH-SCRAPER-ENV")
+
     # GENERAL #
     config["url_sentry"] = environ.get("URL_SENTRY")
     config["coralogix_secret_key"] = environ.get("CORALOGIX_PRIVATE_KEY")
@@ -46,3 +48,4 @@ if environ.get("WMH-SCRAPER-ENV") == "production":
         "wmh_backoffice_endpoint"
     ] = "https://wmhbackoffice-prod.onrender.com"
     config["wmh_backoffice_token"] = environ.get("PRODUCTION_BACKOFFICE_TOKEN")
+    config["token_backoffice"] = environ.get("TOKEN_BACKOFFICE")

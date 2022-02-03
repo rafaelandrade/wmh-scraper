@@ -27,13 +27,13 @@ def number_of_rooms(x_request_id: str, driver) -> int:
     sleep(number=2)
     try:
         number_rooms_data = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/main/section/div/div[1]/div/div[3]/div/div[2]/div/div"
+            "/html/body/div[1]/div/main/section/div/div[1]/div/div[3]/div/div[2]/div/div/p"
         )
 
         if number_rooms_data:
             send_log(
                 x_request_id=x_request_id,
-                message="Found information about number of rooms...",
+                message=f"Found information about number of rooms, {number_rooms_data.text}...",
             )
 
             number_rooms = number_rooms_data.text
@@ -48,4 +48,4 @@ def number_of_rooms(x_request_id: str, driver) -> int:
                 else 0
             )
     except (AttributeError, NoSuchElementException) as exception:
-        error_handler(x_request_id=x_request_id, exception=exception)
+        return error_handler(x_request_id=x_request_id, exception=exception)

@@ -24,7 +24,7 @@ ADD . .
 
 RUN chmod 777 health.sh
 
-HEALTHCHECK --interval=5m --timeout=3s \
+HEALTHCHECK --interval=3m --timeout=3s \
   CMD bash health.sh || exit 1
 
 COPY . .
