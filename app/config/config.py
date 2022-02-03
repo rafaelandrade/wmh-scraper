@@ -48,3 +48,4 @@ if environ.get("WMH-SCRAPER-ENV") == "production":
         "wmh_backoffice_endpoint"
     ] = "https://wmhbackoffice-prod.onrender.com"
     config["wmh_backoffice_token"] = environ.get("PRODUCTION_BACKOFFICE_TOKEN")
+    config["token_backoffice"] = environ.get("TOKEN_BACKOFFICE")

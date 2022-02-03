@@ -36,6 +36,16 @@ def start(thread_number: int) -> None:
         message=f"Initiation of WMH-Scraper with environment {config.get('environment')}...",
         x_request_id="",
     )
+    send_log(
+        message=f"BACKOFICE{config.get('token_backoffice')} "
+        f"- AND TEST2 {config.get('wmh_backoffice_token')}",
+        x_request_id="",
+    )
+
+    send_log(
+        message=f"ENDPOINT {config.get('wmh_backoffice_endpoint')}",
+        x_request_id="",
+    )
     main(driver=driver, queue=queue)
 
 
